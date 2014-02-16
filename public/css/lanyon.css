@@ -41,14 +41,11 @@ body {
 }
 
 html {
-  /*font-family: "PT Serif", Georgia, "Times New Roman","Microsoft Yahei","Î¢ÈíÑÅºÚ", serif;*/
-  font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif,"Microsoft YaHei",SimHei,"LiHei Pro Medium",STXihei !default;
+  font-family: "PT Serif", Georgia, "Times New Roman", serif;
 }
 
-
 h1, h2, h3, h4, h5, h6 {
-  /*font-family: "PT Sans", Helvetica, Arial,"Microsoft Yahei","Î¢ÈíÑÅºÚ", sans-serif;*/
-  font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif,"Microsoft YaHei",SimHei,"LiHei Pro Medium",STXihei !default;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
   font-weight: 400;
   color: #313131;
   letter-spacing: -.025rem;
