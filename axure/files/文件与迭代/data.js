@@ -1,0 +1,77 @@
+﻿$axure.loadCurrentPage({
+  "url":"文件与迭代.html",
+  "generationDate":new Date(1467963159162.28),
+  "isCanvasEnabled":false,
+  "variables":["OnLoadVariable",
+"AxStWidget",
+"AxStYPosition",
+"AxStYLimit",
+"AxStRowHeight",
+"AxStScaleFactor",
+"AxStYRotateDirection"],
+  "page":{
+    "packageId":"b50fd3b55c7540a298ba8c878196bb72",
+    "type":"Axure:Page",
+    "name":"文件与迭代",
+    "notes":{
+},
+    "style":{
+      "baseStyle":"627587b6038d43cca051c114ac41ad32",
+      "pageAlignment":"near",
+      "fill":{
+        "fillType":"solid",
+        "color":0xFFCCCCCC},
+      "image":null,
+      "imageHorizontalAlignment":"near",
+      "imageVerticalAlignment":"near",
+      "imageRepeat":"auto",
+      "favicon":null,
+      "sketchFactor":"0",
+      "colorStyle":"appliedColor",
+      "fontName":"应用字体",
+      "borderWidth":"0"},
+    "adaptiveStyles":{
+},
+    "interactionMap":{
+},
+    "diagram":{
+      "objects":[{
+          "id":"9e633e0f0bfa4324b5910c3d62220566",
+          "label":"",
+          "type":"imageBox",
+          "styleType":"imageBox",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":20,
+              "y":10},
+            "size":{
+              "width":1037,
+              "height":178}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"76e2161dbd044dd484adefa9b4e726e9",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "location":{
+                  "x":20,
+                  "y":10},
+                "size":{
+                  "width":1037,
+                  "height":178}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/文件与迭代/u0.png"}}]}},
+  "masters":{
+},
+  "objectPaths":{
+    "9e633e0f0bfa4324b5910c3d62220566":{
+      "scriptId":"u0"},
+    "76e2161dbd044dd484adefa9b4e726e9":{
+      "scriptId":"u1"}}});
