@@ -82,7 +82,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, World" />
+  <meta name="keywords" content="pyecharts,数据可视化,Anaconda," />
 
 
 
@@ -98,17 +98,29 @@
 
 
 
-<meta name="description" content="人生本就虚无，所谓永恒的意义也只是经历的一切。">
-<meta name="keywords" content="Technology Science Philosophy Life">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Nullts&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="0x00 python环境安装及配置1. 关于python版本关于python的版本讨论实在是太久远了，现在都2018年了，如果不是维护原来的代码版本，应该毫不犹豫的选择python3.x，python2和python3有很多不兼容，会造成麻烦。谁还会选择一个十年前的版本呢？而且越来越多的库是基于python3去构建。 选择Python3.x！！！ 2. 关于python集成环境笔者最早使用，使用">
+<meta name="keywords" content="pyecharts,数据可视化,Anaconda">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Pyecharts的数据可视化">
+<meta property="og:url" content="http://yoursite.com/2018/07/11/基于Pyecharts的数据可视化/index.html">
 <meta property="og:site_name" content="Nullts&#39;s Blog">
-<meta property="og:description" content="人生本就虚无，所谓永恒的意义也只是经历的一切。">
+<meta property="og:description" content="0x00 python环境安装及配置1. 关于python版本关于python的版本讨论实在是太久远了，现在都2018年了，如果不是维护原来的代码版本，应该毫不犹豫的选择python3.x，python2和python3有很多不兼容，会造成麻烦。谁还会选择一个十年前的版本呢？而且越来越多的库是基于python3去构建。 选择Python3.x！！！ 2. 关于python集成环境笔者最早使用，使用">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/07/11/基于Pyecharts的数据可视化/anconda截图.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/11/基于Pyecharts的数据可视化/柱状图数据堆叠示例.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/11/基于Pyecharts的数据可视化/3D%20柱状图示例.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/11/基于Pyecharts的数据可视化/仪表盘示例.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/11/基于Pyecharts的数据可视化/极坐标系-堆叠柱状图示例.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/11/基于Pyecharts的数据可视化/折线图示例.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/11/基于Pyecharts的数据可视化/3D%20折线图示例.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/11/基于Pyecharts的数据可视化/散点图示例.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/11/基于Pyecharts的数据可视化/3D%20散点图示例.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/11/基于Pyecharts的数据可视化/全国主要城市空气质量.png">
+<meta property="og:updated_time" content="2018-07-12T09:01:56.300Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nullts&#39;s Blog">
-<meta name="twitter:description" content="人生本就虚无，所谓永恒的意义也只是经历的一切。">
+<meta name="twitter:title" content="基于Pyecharts的数据可视化">
+<meta name="twitter:description" content="0x00 python环境安装及配置1. 关于python版本关于python的版本讨论实在是太久远了，现在都2018年了，如果不是维护原来的代码版本，应该毫不犹豫的选择python3.x，python2和python3有很多不兼容，会造成麻烦。谁还会选择一个十年前的版本呢？而且越来越多的库是基于python3去构建。 选择Python3.x！！！ 2. 关于python集成环境笔者最早使用，使用">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/11/基于Pyecharts的数据可视化/anconda截图.png">
 
 
 
@@ -137,13 +149,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/11/基于Pyecharts的数据可视化/"/>
 
 
 
 
 
-  <title>Nullts's Blog</title>
+  <title>基于Pyecharts的数据可视化 | Nullts's Blog</title>
   
 
 
@@ -168,9 +180,7 @@
     
   
 
-  <div class="container sidebar-position-right 
-   page-home 
- ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -273,9 +283,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -305,9 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/11/基于Pyecharts的数据可视化/" itemprop="url">基于Pyecharts的数据可视化</a></h1>
+          <h1 class="post-title" itemprop="name headline">基于Pyecharts的数据可视化</h1>
         
 
         <div class="post-meta">
@@ -390,9 +398,7 @@
       
 
       
-        
-          
-            <h1 id="0x00-python环境安装及配置"><a href="#0x00-python环境安装及配置" class="headerlink" title="0x00 python环境安装及配置"></a>0x00 python环境安装及配置</h1><h2 id="1-关于python版本"><a href="#1-关于python版本" class="headerlink" title="1. 关于python版本"></a>1. 关于python版本</h2><p>关于python的版本讨论实在是太久远了，现在都2018年了，如果不是维护原来的代码版本，应该毫不犹豫的选择python3.x，python2和python3有很多不兼容，会造成麻烦。谁还会选择一个十年前的版本呢？而且越来越多的库是基于python3去构建。</p>
+        <h1 id="0x00-python环境安装及配置"><a href="#0x00-python环境安装及配置" class="headerlink" title="0x00 python环境安装及配置"></a>0x00 python环境安装及配置</h1><h2 id="1-关于python版本"><a href="#1-关于python版本" class="headerlink" title="1. 关于python版本"></a>1. 关于python版本</h2><p>关于python的版本讨论实在是太久远了，现在都2018年了，如果不是维护原来的代码版本，应该毫不犹豫的选择python3.x，python2和python3有很多不兼容，会造成麻烦。谁还会选择一个十年前的版本呢？而且越来越多的库是基于python3去构建。</p>
 <p><strong>选择Python3.x！！！</strong></p>
 <h2 id="2-关于python集成环境"><a href="#2-关于python集成环境" class="headerlink" title="2. 关于python集成环境"></a>2. 关于python集成环境</h2><p>笔者最早使用，使用官方安装包，但各种配置包管理是一件很头疼的事，特别是各种库、包的安装及处理他们的依赖关系，最后使用Anconda，完成的大部分包管理，并且提供了各类工具，对数据科学十分友好。</p>
 <p><img src="/2018/07/11/基于Pyecharts的数据可视化/anconda截图.png" alt=""></p>
@@ -427,8 +433,6 @@
 <h2 id="9-地图"><a href="#9-地图" class="headerlink" title="9. 地图"></a>9. 地图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyecharts <span class="keyword">import</span> Geo</span><br><span class="line"></span><br><span class="line">data = [</span><br><span class="line">    (<span class="string">"海门"</span>, <span class="number">9</span>),(<span class="string">"鄂尔多斯"</span>, <span class="number">12</span>),(<span class="string">"招远"</span>, <span class="number">12</span>),(<span class="string">"舟山"</span>, <span class="number">12</span>),(<span class="string">"齐齐哈尔"</span>, <span class="number">14</span>),(<span class="string">"盐城"</span>, <span class="number">15</span>),</span><br><span class="line">    (<span class="string">"赤峰"</span>, <span class="number">16</span>),(<span class="string">"青岛"</span>, <span class="number">18</span>),(<span class="string">"乳山"</span>, <span class="number">18</span>),(<span class="string">"金昌"</span>, <span class="number">19</span>),(<span class="string">"泉州"</span>, <span class="number">21</span>),(<span class="string">"莱西"</span>, <span class="number">21</span>),</span><br><span class="line">    (<span class="string">"日照"</span>, <span class="number">21</span>),(<span class="string">"胶南"</span>, <span class="number">22</span>),(<span class="string">"南通"</span>, <span class="number">23</span>),(<span class="string">"拉萨"</span>, <span class="number">24</span>),(<span class="string">"云浮"</span>, <span class="number">24</span>),(<span class="string">"梅州"</span>, <span class="number">25</span>),</span><br><span class="line">    (<span class="string">"文登"</span>, <span class="number">25</span>),(<span class="string">"上海"</span>, <span class="number">25</span>),(<span class="string">"攀枝花"</span>, <span class="number">25</span>),(<span class="string">"威海"</span>, <span class="number">25</span>),(<span class="string">"承德"</span>, <span class="number">25</span>),(<span class="string">"厦门"</span>, <span class="number">26</span>),</span><br><span class="line">    (<span class="string">"汕尾"</span>, <span class="number">26</span>),(<span class="string">"潮州"</span>, <span class="number">26</span>),(<span class="string">"丹东"</span>, <span class="number">27</span>),(<span class="string">"太仓"</span>, <span class="number">27</span>),(<span class="string">"曲靖"</span>, <span class="number">27</span>),(<span class="string">"烟台"</span>, <span class="number">28</span>),</span><br><span class="line">    (<span class="string">"福州"</span>, <span class="number">29</span>),(<span class="string">"瓦房店"</span>, <span class="number">30</span>),(<span class="string">"即墨"</span>, <span class="number">30</span>),(<span class="string">"抚顺"</span>, <span class="number">31</span>),(<span class="string">"玉溪"</span>, <span class="number">31</span>),(<span class="string">"张家口"</span>, <span class="number">31</span>),</span><br><span class="line">    (<span class="string">"阳泉"</span>, <span class="number">31</span>),(<span class="string">"莱州"</span>, <span class="number">32</span>),(<span class="string">"湖州"</span>, <span class="number">32</span>),(<span class="string">"汕头"</span>, <span class="number">32</span>),(<span class="string">"昆山"</span>, <span class="number">33</span>),(<span class="string">"宁波"</span>, <span class="number">33</span>),</span><br><span class="line">    (<span class="string">"湛江"</span>, <span class="number">33</span>),(<span class="string">"揭阳"</span>, <span class="number">34</span>),(<span class="string">"荣成"</span>, <span class="number">34</span>),(<span class="string">"连云港"</span>, <span class="number">35</span>),(<span class="string">"葫芦岛"</span>, <span class="number">35</span>),(<span class="string">"常熟"</span>, <span class="number">36</span>),</span><br><span class="line">    (<span class="string">"东莞"</span>, <span class="number">36</span>),(<span class="string">"河源"</span>, <span class="number">36</span>),(<span class="string">"淮安"</span>, <span class="number">36</span>),(<span class="string">"泰州"</span>, <span class="number">36</span>),(<span class="string">"南宁"</span>, <span class="number">37</span>),(<span class="string">"营口"</span>, <span class="number">37</span>),</span><br><span class="line">    (<span class="string">"惠州"</span>, <span class="number">37</span>),(<span class="string">"江阴"</span>, <span class="number">37</span>),(<span class="string">"蓬莱"</span>, <span class="number">37</span>),(<span class="string">"韶关"</span>, <span class="number">38</span>),(<span class="string">"嘉峪关"</span>, <span class="number">38</span>),(<span class="string">"广州"</span>, <span class="number">38</span>),</span><br><span class="line">    (<span class="string">"延安"</span>, <span class="number">38</span>),(<span class="string">"太原"</span>, <span class="number">39</span>),(<span class="string">"清远"</span>, <span class="number">39</span>),(<span class="string">"中山"</span>, <span class="number">39</span>),(<span class="string">"昆明"</span>, <span class="number">39</span>),(<span class="string">"寿光"</span>, <span class="number">40</span>),</span><br><span class="line">    (<span class="string">"盘锦"</span>, <span class="number">40</span>),(<span class="string">"长治"</span>, <span class="number">41</span>),(<span class="string">"深圳"</span>, <span class="number">41</span>),(<span class="string">"珠海"</span>, <span class="number">42</span>),(<span class="string">"宿迁"</span>, <span class="number">43</span>),(<span class="string">"咸阳"</span>, <span class="number">43</span>),</span><br><span class="line">    (<span class="string">"铜川"</span>, <span class="number">44</span>),(<span class="string">"平度"</span>, <span class="number">44</span>),(<span class="string">"佛山"</span>, <span class="number">44</span>),(<span class="string">"海口"</span>, <span class="number">44</span>),(<span class="string">"江门"</span>, <span class="number">45</span>),(<span class="string">"章丘"</span>, <span class="number">45</span>),</span><br><span class="line">    (<span class="string">"肇庆"</span>, <span class="number">46</span>),(<span class="string">"大连"</span>, <span class="number">47</span>),(<span class="string">"临汾"</span>, <span class="number">47</span>),(<span class="string">"吴江"</span>, <span class="number">47</span>),(<span class="string">"石嘴山"</span>, <span class="number">49</span>),(<span class="string">"沈阳"</span>, <span class="number">50</span>),</span><br><span class="line">    (<span class="string">"苏州"</span>, <span class="number">50</span>),(<span class="string">"茂名"</span>, <span class="number">50</span>),(<span class="string">"嘉兴"</span>, <span class="number">51</span>),(<span class="string">"长春"</span>, <span class="number">51</span>),(<span class="string">"胶州"</span>, <span class="number">52</span>),(<span class="string">"银川"</span>, <span class="number">52</span>),</span><br><span class="line">    (<span class="string">"张家港"</span>, <span class="number">52</span>),(<span class="string">"三门峡"</span>, <span class="number">53</span>),(<span class="string">"锦州"</span>, <span class="number">54</span>),(<span class="string">"南昌"</span>, <span class="number">54</span>),(<span class="string">"柳州"</span>, <span class="number">54</span>),(<span class="string">"三亚"</span>, <span class="number">54</span>),</span><br><span class="line">    (<span class="string">"自贡"</span>, <span class="number">56</span>),(<span class="string">"吉林"</span>, <span class="number">56</span>),(<span class="string">"阳江"</span>, <span class="number">57</span>),(<span class="string">"泸州"</span>, <span class="number">57</span>),(<span class="string">"西宁"</span>, <span class="number">57</span>),(<span class="string">"宜宾"</span>, <span class="number">58</span>),</span><br><span class="line">    (<span class="string">"呼和浩特"</span>, <span class="number">58</span>),(<span class="string">"成都"</span>, <span class="number">58</span>),(<span class="string">"大同"</span>, <span class="number">58</span>),(<span class="string">"镇江"</span>, <span class="number">59</span>),(<span class="string">"桂林"</span>, <span class="number">59</span>),(<span class="string">"张家界"</span>, <span class="number">59</span>),</span><br><span class="line">    (<span class="string">"宜兴"</span>, <span class="number">59</span>),(<span class="string">"北海"</span>, <span class="number">60</span>),(<span class="string">"西安"</span>, <span class="number">61</span>),(<span class="string">"金坛"</span>, <span class="number">62</span>),(<span class="string">"东营"</span>, <span class="number">62</span>),(<span class="string">"牡丹江"</span>, <span class="number">63</span>),</span><br><span class="line">    (<span class="string">"遵义"</span>, <span class="number">63</span>),(<span class="string">"绍兴"</span>, <span class="number">63</span>),(<span class="string">"扬州"</span>, <span class="number">64</span>),(<span class="string">"常州"</span>, <span class="number">64</span>),(<span class="string">"潍坊"</span>, <span class="number">65</span>),(<span class="string">"重庆"</span>, <span class="number">66</span>),</span><br><span class="line">    (<span class="string">"台州"</span>, <span class="number">67</span>),(<span class="string">"南京"</span>, <span class="number">67</span>),(<span class="string">"滨州"</span>, <span class="number">70</span>),(<span class="string">"贵阳"</span>, <span class="number">71</span>),(<span class="string">"无锡"</span>, <span class="number">71</span>),(<span class="string">"本溪"</span>, <span class="number">71</span>),</span><br><span class="line">    (<span class="string">"克拉玛依"</span>, <span class="number">72</span>),(<span class="string">"渭南"</span>, <span class="number">72</span>),(<span class="string">"马鞍山"</span>, <span class="number">72</span>),(<span class="string">"宝鸡"</span>, <span class="number">72</span>),(<span class="string">"焦作"</span>, <span class="number">75</span>),(<span class="string">"句容"</span>, <span class="number">75</span>),</span><br><span class="line">    (<span class="string">"北京"</span>, <span class="number">79</span>),(<span class="string">"徐州"</span>, <span class="number">79</span>),(<span class="string">"衡水"</span>, <span class="number">80</span>),(<span class="string">"包头"</span>, <span class="number">80</span>),(<span class="string">"绵阳"</span>, <span class="number">80</span>),(<span class="string">"乌鲁木齐"</span>, <span class="number">84</span>),</span><br><span class="line">    (<span class="string">"枣庄"</span>, <span class="number">84</span>),(<span class="string">"杭州"</span>, <span class="number">84</span>),(<span class="string">"淄博"</span>, <span class="number">85</span>),(<span class="string">"鞍山"</span>, <span class="number">86</span>),(<span class="string">"溧阳"</span>, <span class="number">86</span>),(<span class="string">"库尔勒"</span>, <span class="number">86</span>),</span><br><span class="line">    (<span class="string">"安阳"</span>, <span class="number">90</span>),(<span class="string">"开封"</span>, <span class="number">90</span>),(<span class="string">"济南"</span>, <span class="number">92</span>),(<span class="string">"德阳"</span>, <span class="number">93</span>),(<span class="string">"温州"</span>, <span class="number">95</span>),(<span class="string">"九江"</span>, <span class="number">96</span>),</span><br><span class="line">    (<span class="string">"邯郸"</span>, <span class="number">98</span>),(<span class="string">"临安"</span>, <span class="number">99</span>),(<span class="string">"兰州"</span>, <span class="number">99</span>),(<span class="string">"沧州"</span>, <span class="number">100</span>),(<span class="string">"临沂"</span>, <span class="number">103</span>),(<span class="string">"南充"</span>, <span class="number">104</span>),</span><br><span class="line">    (<span class="string">"天津"</span>, <span class="number">105</span>),(<span class="string">"富阳"</span>, <span class="number">106</span>),(<span class="string">"泰安"</span>, <span class="number">112</span>),(<span class="string">"诸暨"</span>, <span class="number">112</span>),(<span class="string">"郑州"</span>, <span class="number">113</span>),(<span class="string">"哈尔滨"</span>, <span class="number">114</span>),</span><br><span class="line">    (<span class="string">"聊城"</span>, <span class="number">116</span>),(<span class="string">"芜湖"</span>, <span class="number">117</span>),(<span class="string">"唐山"</span>, <span class="number">119</span>),(<span class="string">"平顶山"</span>, <span class="number">119</span>),(<span class="string">"邢台"</span>, <span class="number">119</span>),(<span class="string">"德州"</span>, <span class="number">120</span>),</span><br><span class="line">    (<span class="string">"济宁"</span>, <span class="number">120</span>),(<span class="string">"荆州"</span>, <span class="number">127</span>),(<span class="string">"宜昌"</span>, <span class="number">130</span>),(<span class="string">"义乌"</span>, <span class="number">132</span>),(<span class="string">"丽水"</span>, <span class="number">133</span>),(<span class="string">"洛阳"</span>, <span class="number">134</span>),</span><br><span class="line">    (<span class="string">"秦皇岛"</span>, <span class="number">136</span>),(<span class="string">"株洲"</span>, <span class="number">143</span>),(<span class="string">"石家庄"</span>, <span class="number">147</span>),(<span class="string">"莱芜"</span>, <span class="number">148</span>),(<span class="string">"常德"</span>, <span class="number">152</span>),(<span class="string">"保定"</span>, <span class="number">153</span>),</span><br><span class="line">    (<span class="string">"湘潭"</span>, <span class="number">154</span>),(<span class="string">"金华"</span>, <span class="number">157</span>),(<span class="string">"岳阳"</span>, <span class="number">169</span>),(<span class="string">"长沙"</span>, <span class="number">175</span>),(<span class="string">"衢州"</span>, <span class="number">177</span>),(<span class="string">"廊坊"</span>, <span class="number">193</span>),</span><br><span class="line">    (<span class="string">"菏泽"</span>, <span class="number">194</span>),(<span class="string">"合肥"</span>, <span class="number">229</span>),(<span class="string">"武汉"</span>, <span class="number">273</span>),(<span class="string">"大庆"</span>, <span class="number">279</span>)]</span><br><span class="line"></span><br><span class="line">geo = Geo(<span class="string">"全国主要城市空气质量"</span>, <span class="string">"data from pm2.5"</span>, title_color=<span class="string">"#fff"</span>,</span><br><span class="line">          title_pos=<span class="string">"center"</span>, width=<span class="number">1200</span>,</span><br><span class="line">          height=<span class="number">600</span>, background_color=<span class="string">'#404a59'</span>)</span><br><span class="line">attr, value = geo.cast(data)</span><br><span class="line">geo.add(<span class="string">""</span>, attr, value, visual_range=[<span class="number">0</span>, <span class="number">200</span>], visual_text_color=<span class="string">"#fff"</span>,</span><br><span class="line">        symbol_size=<span class="number">15</span>, is_visualmap=<span class="keyword">True</span>)</span><br><span class="line">geo</span><br></pre></td></tr></table></figure>
 <p><img src="/2018/07/11/基于Pyecharts的数据可视化/全国主要城市空气质量.png" alt=""></p>
 
-          
-        
       
     </div>
     
@@ -443,367 +447,40 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/18/基于MarkDown的Hexo博客生成系统/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nullts">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nullts's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/18/基于MarkDown的Hexo博客生成系统/" itemprop="url">基于MarkDown的Hexo博客生成系统</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-18T17:33:11+08:00">
-                2018-06-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术杂项/" itemprop="url" rel="index">
-                    <span itemprop="name">技术杂项</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/pyecharts/" rel="tag"># pyecharts</a>
           
-
+            <a href="/tags/数据可视化/" rel="tag"># 数据可视化</a>
           
-            
+            <a href="/tags/Anaconda/" rel="tag"># Anaconda</a>
           
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="0X00-前言"><a href="#0X00-前言" class="headerlink" title="0X00. 前言"></a>0X00. 前言</h1><p>Blog系统其实有很多包括sina、简书等平台Blog系统，也有基于主机自己搭建的Wordpress等CMS系统。知道github后就选用了github的静态站点服务，现在本Blog就是承载在github.io上。</p>
-<p>静态站点生成和Blog文章管理，本人接触到的主要是Jekyll和Hexo，Jekyll大概是在两年前用了一段时间，但觉得学习曲线陡峭，同时也发现了Hexo相对友好且容易上手，所以选用了Hexo作为静态网站的管理工具。</p>
-<p>网上有很多关于Github的静态站点服务和Hexo教程，本文就不赘述，本文主要记录Markdown及Hexo插件的一些安装和使用小技巧。关于Github静态站点服务和Hexo建议查看官方文档：</p>
-<p>Github Page服务：<a href="https://pages.github.com/" target="_blank" rel="noopener">https://pages.github.com/</a><br>Hexo Doc：<a href="https://hexo.io/docs/" target="_blank" rel="noopener">https://hexo.io/docs/</a></p>
-<h1 id="0X01-关于Markdown"><a href="#0X01-关于Markdown" class="headerlink" title="0X01. 关于Markdown"></a>0X01. 关于Markdown</h1><p>Hexo的所有文章都是使用Markdown作为标记语言生成的，Markdown作为标记语言可以用任何文本编辑工具编辑。在这过程中我使用过很多markdown的编辑器，包括利用插件实现的VIM的版本、Atom的版本，最后还是使用了Typora，很容易上手的一个markdown编辑器。<br>安装和下载的地址：<a href="https://typora.io/" target="_blank" rel="noopener">https://typora.io/</a></p>
-<h2 id="1-Pandoc"><a href="#1-Pandoc" class="headerlink" title="1. Pandoc"></a>1. Pandoc</h2><p>Pandoc插件提供了文档的各种格式的输出功能，如果你需要保存文档至其他格式，包括PDF、Word、Html等等开源格式。<br>下载和文档地址：<a href="http://www.pandoc.org/" target="_blank" rel="noopener">http://www.pandoc.org/</a></p>
-<h2 id="2-Mermaid"><a href="#2-Mermaid" class="headerlink" title="2. Mermaid"></a>2. Mermaid</h2><p>Mermaid，本人觉得是Markdown中最牛逼的插件没有之一。以下是实现的一些示例</p>
-<pre class="mermaid">sequenceDiagram
-    participant Alice
-    participant Bob
-    Alice->>John: Hello John, how are you?
-    loop Healthcheck
-        John->>John: Fight against hypochondria
-    end
-    Note right of John: Rational thoughts <br>prevail...
-    John-->>Alice: Great!
-    John->>Bob: How about you?
-    Bob-->>John: Jolly good!</pre>
-
-<pre class="mermaid">graph LR
-A[Hard edge] -->B(Round edge)
-    B --> C{Decision}
-    C -->|One| D[Result one]
-    C -->|Two| E[Result two]</pre>
-
-<p>还有复杂的甘特图：</p>
-<pre class="mermaid">
-        gantt
-        dateFormat  YYYY-MM-DD
-        title Adding GANTT diagram functionality to mermaid
-
-        section A section
-        Completed task            :done,    des1, 2014-01-06,2014-01-08
-        Active task               :active,  des2, 2014-01-09, 3d
-        Future task               :         des3, after des2, 5d
-        Future task2               :         des4, after des3, 5d
-
-        section Critical tasks
-        Completed task in the critical line :crit, done, 2014-01-06,24h
-        Implement parser and jison          :crit, done, after des1, 2d
-        Create tests for parser             :crit, active, 3d
-        Future task in critical line        :crit, 5d
-        Create tests for renderer           :2d
-        Add to mermaid                      :1d
-
-        section Documentation
-        Describe gantt syntax               :active, a1, after des1, 3d
-        Add gantt diagram to demo page      :after a1  , 20h
-        Add another diagram to demo page    :doc1, after a1  , 48h
-
-        section Last section
-        Describe gantt syntax               :after doc1, 3d
-        Add gantt diagram to demo page      : 20h
-        Add another diagram to demo page    : 48h</pre>
-
-<p>文档地址在：<br><a href="https://support.typora.io/Draw-Diagrams-With-Markdown/" target="_blank" rel="noopener">https://support.typora.io/Draw-Diagrams-With-Markdown/</a></p>
-<p>Mermaid的实现满足了工作中大部分需求。</p>
-<h1 id="0X02-关于Hexo配置及插件"><a href="#0X02-关于Hexo配置及插件" class="headerlink" title="0X02. 关于Hexo配置及插件"></a>0X02. 关于Hexo配置及插件</h1><h2 id="1-设置标签和分类目录"><a href="#1-设置标签和分类目录" class="headerlink" title="1.设置标签和分类目录"></a>1.设置标签和分类目录</h2><p>本配置都是在根目录下的_config.yml文件中修改：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">source_dir: <span class="built_in">source</span></span><br><span class="line">public_dir: public</span><br><span class="line">tag_dir: tags</span><br><span class="line">archive_dir: archives</span><br><span class="line">category_dir: categories</span><br><span class="line">code_dir: downloads/code</span><br><span class="line">i18n_dir: :lang</span><br><span class="line">skip_render:</span><br></pre></td></tr></table></figure></p>
-<h2 id="2-Theme"><a href="#2-Theme" class="headerlink" title="2. Theme"></a>2. Theme</h2><p>本人选择的是主题<a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">Next</a>,大家一致觉得比较高质量的主题,在这主题下有4个子主题,笔者采用了Mist.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> hexo</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-<p>安装后,需要在HEXO配置文件_config.yml中配置主题<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure></p>
-<p>然后进入themes/next文件夹中修改配置文件_config.yml，设置子主题。<br>注意！四个子主题只能选择一个！<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scheme: Mist</span><br></pre></td></tr></table></figure></p>
-<h2 id="3-Mermaid"><a href="#3-Mermaid" class="headerlink" title="3. Mermaid"></a>3. Mermaid</h2><p>在typora中可以解析mermaid，但是hexo不会解析mermaid，需要安装插件hexo-filter-mermaid-diagrams，地址在<a href="https://github.com/webappdevelp/hexo-filter-mermaid-diagrams" target="_blank" rel="noopener">https://github.com/webappdevelp/hexo-filter-mermaid-diagrams</a><br>这里有几个坑！<br>官方文档中没有npm口令，但安装可以直接用口令:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-filter-mermaid-diagrams</span><br></pre></td></tr></table></figure></p>
-<p>安装后需要在hexo的配置文件_config.yml中添加以下代码：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mermaid chart</span></span><br><span class="line">mermaid: <span class="comment">## mermaid url https://github.com/knsv/mermaid</span></span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span>  <span class="comment"># default true</span></span><br><span class="line">  version: <span class="string">"7.1.2"</span> <span class="comment"># default v7.1.2</span></span><br><span class="line">  options:  <span class="comment"># find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js</span></span><br><span class="line">    <span class="comment">#startOnload: true  // default true</span></span><br></pre></td></tr></table></figure></p>
-<p>最后需要在foot文件中添加解析代码，官方文档中使用的是pug和ejs作为脚本语言，但next主题是使用swing做脚本语言的，并且文件名有些差异。在next主题下，文件地址在：themes\next\layout_partials，文件名为：footer.swig，需要在文件末尾加上如下代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if (theme.mermaid.enable) %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'https://unpkg.com/mermaid@&#123;&#123; theme.mermaid.version &#125;&#125;/dist/mermaid.min.js'</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    if (window.mermaid) &#123;</span></span><br><span class="line"><span class="undefined">      mermaid.initialize(&#123;theme: 'forest'&#125;);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="4-Assert"><a href="#4-Assert" class="headerlink" title="4. Assert"></a>4. Assert</h2><p>打开资源文件夹选项,修改hexo配置文件_config.yml<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
-<p>至此，在使用hexo发布博客的过程中遇到的一些log于此。遇到问题多看文档，终会解决的。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/1988/07/07/The-First-写在30岁来临之前/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Nullts">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nullts's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/1988/07/07/The-First-写在30岁来临之前/" itemprop="url">The First 写在30岁来临之前...</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="1988-07-08T00:00:00+09:00">
-                1988-07-08
-              </time>
+              <a href="/2018/06/18/基于MarkDown的Hexo博客生成系统/" rel="next" title="基于MarkDown的Hexo博客生成系统">
+                <i class="fa fa-chevron-left"></i> 基于MarkDown的Hexo博客生成系统
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/人生感悟/" itemprop="url" rel="index">
-                    <span itemprop="name">人生感悟</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>这篇文章是正式写Blog的第一篇。其实在此次折腾Blog之前，已经最少有5次使用各种平台，各类工具写文章，依旧没有成型下来。在临近30岁之时，感觉自己需要把思想（或者说瞎想）、学习感悟、人生阅历给记录下来，所以以此开始自己的Blog之旅。</p>
-<blockquote>
-<p>1988年7月8日，是我的生日，人生的起点，所以这篇文章的date定为了1988-07-08 。这也算是我新的征途的开始…</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -813,10 +490,11 @@ A[Hard edge] -->B(Round edge)
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -824,6 +502,10 @@ A[Hard edge] -->B(Round edge)
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -844,8 +526,17 @@ A[Hard edge] -->B(Round edge)
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -907,6 +598,22 @@ A[Hard edge] -->B(Round edge)
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x00-python环境安装及配置"><span class="nav-number">1.</span> <span class="nav-text">0x00 python环境安装及配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-关于python版本"><span class="nav-number">1.1.</span> <span class="nav-text">1. 关于python版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-关于python集成环境"><span class="nav-number">1.2.</span> <span class="nav-text">2. 关于python集成环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Jupyter-Notebook"><span class="nav-number">1.3.</span> <span class="nav-text">3. Jupyter Notebook</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-pyechart安装及配置"><span class="nav-number">2.</span> <span class="nav-text">0x01 pyechart安装及配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-pyechart的使用"><span class="nav-number">3.</span> <span class="nav-text">0x02 pyechart的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-柱状图"><span class="nav-number">3.1.</span> <span class="nav-text">1. 柱状图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3D柱状图"><span class="nav-number">3.2.</span> <span class="nav-text">2. 3D柱状图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-仪表盘"><span class="nav-number">3.3.</span> <span class="nav-text">3. 仪表盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-极坐标"><span class="nav-number">3.4.</span> <span class="nav-text">4. 极坐标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-折线图"><span class="nav-number">3.5.</span> <span class="nav-text">5. 折线图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3D折线图"><span class="nav-number">3.6.</span> <span class="nav-text">6. 3D折线图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-散点图"><span class="nav-number">3.7.</span> <span class="nav-text">7. 散点图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3D散点图"><span class="nav-number">3.8.</span> <span class="nav-text">8. 3D散点图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-地图"><span class="nav-number">3.9.</span> <span class="nav-text">9. 地图</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1029,10 +736,10 @@ A[Hard edge] -->B(Round edge)
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
