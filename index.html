@@ -288,6 +288,355 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/06/爬取3000个城市与地区8年天气数据/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nullts">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nullts's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/06/爬取3000个城市与地区8年天气数据/" itemprop="url">爬取3000个城市与地区8年天气数据</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-06T10:53:39+08:00">
+                2018-08-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">爬虫</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="0x00-为什么采集天气数据"><a href="#0x00-为什么采集天气数据" class="headerlink" title="0x00 为什么采集天气数据"></a>0x00 为什么采集天气数据</h1><p>一日走在路上，在想关于销售预测的相关，发现很多预测状况都与天气有巨大的关联，最近也正好在看爬虫相关的，搜索了一番，发现网上有按月展示的数据，但无数据包，所以开始了自己爬取数据的过程。由于网站提供的数据很好采集，也无限制，所以采集的很顺利，总共采集了大概800W条数据。</p>
+<h1 id="0x01分析页面"><a href="#0x01分析页面" class="headerlink" title="0x01分析页面"></a>0x01分析页面</h1><p>在城市列表页：<a href="http://lishi.tianqi.com/" target="_blank" rel="noopener">http://lishi.tianqi.com/</a> 可通过每个城市名点击，进入单个城市的详情页：<a href="http://lishi.tianqi.com/beijing/index.html" target="_blank" rel="noopener">http://lishi.tianqi.com/beijing/index.html</a> （以北京为例），在此页中存有北京市天气的详细数据列表：</p>
+<p><img src="/2018/08/06/爬取3000个城市与地区8年天气数据/北京天气详情列表页.png" alt="1533542419290"></p>
+<p>点击后进入月天气详情页：<a href="http://lishi.tianqi.com/beijing/201806.html" target="_blank" rel="noopener">http://lishi.tianqi.com/beijing/201806.html</a> （北京市2018年6月天气详情页）</p>
+<p><img src="/2018/08/06/爬取3000个城市与地区8年天气数据/北京201806天气详情页.png" alt="1533542558814"></p>
+<p>由此获取的目标数据就在城市的月份天气详情页中。</p>
+<h1 id="0x02-采集过程"><a href="#0x02-采集过程" class="headerlink" title="0x02 采集过程"></a>0x02 采集过程</h1><ol>
+<li>从城市列表页获取每个城市URL；</li>
+<li>利用每个城市URL通过组装生成城市月份URL；</li>
+<li>爬取每个城市月份页中的天气数据；</li>
+<li>每个城市一个文件存数据；</li>
+</ol>
+<h1 id="0x03-代码实现"><a href="#0x03-代码实现" class="headerlink" title="0x03 代码实现"></a>0x03 代码实现</h1><h2 id="1-获取城市列表"><a href="#1-获取城市列表" class="headerlink" title="1 . 获取城市列表"></a>1 . 获取城市列表</h2><p>访问<a href="https://lishi.tianqi.com/，获得城市列表写入citylist.csv。" target="_blank" rel="noopener">https://lishi.tianqi.com/，获得城市列表写入citylist.csv。</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getCitylist</span><span class="params">(self)</span>:</span></span><br><span class="line">    listurl = <span class="string">"https://lishi.tianqi.com/"</span></span><br><span class="line">    file = open(<span class="string">'citylist.csv'</span>, <span class="string">'w'</span>)</span><br><span class="line">    response = request.urlopen(listurl)</span><br><span class="line">    soup = BeautifulSoup(response, <span class="string">"html.parser"</span>)</span><br><span class="line">    citylist = soup.select(<span class="string">'[class="bcity"]'</span>)</span><br><span class="line">    <span class="keyword">for</span> cityinfoindex <span class="keyword">in</span> citylist:</span><br><span class="line">        <span class="keyword">for</span> cityinfo <span class="keyword">in</span> cityinfoindex.select(<span class="string">'a'</span>):</span><br><span class="line">            str = <span class="string">""</span></span><br><span class="line">            str += cityinfo.get(<span class="string">'title'</span>)[:<span class="number">-4</span>] + <span class="string">','</span> + cityinfo.get(<span class="string">'href'</span>)</span><br><span class="line">            <span class="keyword">if</span> str.__contains__(<span class="string">"http"</span>):</span><br><span class="line">                file.write(str + <span class="string">'\n'</span>)</span><br><span class="line">    file.close()</span><br></pre></td></tr></table></figure>
+<h2 id="2-城市月份天气页处理"><a href="#2-城市月份天气页处理" class="headerlink" title="2.城市月份天气页处理"></a>2.城市月份天气页处理</h2><p>访问城市月份天气页，通过BeautifulSoup提取数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cityDl</span><span class="params">(self,urllist,cityname)</span>:</span></span><br><span class="line">       filename = cityname + <span class="string">".csv"</span></span><br><span class="line">       file = open(filename, <span class="string">'w'</span>)</span><br><span class="line">       urls = urllist</span><br><span class="line">       <span class="keyword">for</span> url <span class="keyword">in</span> urls:</span><br><span class="line">           response = request.urlopen(url)</span><br><span class="line">           soup = BeautifulSoup(response, <span class="string">'html.parser'</span>)</span><br><span class="line">           weather_list = soup.select(<span class="string">'div[class="tqtongji2"]'</span>)</span><br><span class="line">           print(weather_list)</span><br><span class="line">           <span class="keyword">for</span> weather <span class="keyword">in</span> weather_list:</span><br><span class="line">               ul_list = weather.select(<span class="string">'ul'</span>)</span><br><span class="line">               i = <span class="number">0</span></span><br><span class="line">               <span class="keyword">for</span> ul <span class="keyword">in</span> ul_list:</span><br><span class="line">                   li_list = ul.select(<span class="string">'li'</span>)</span><br><span class="line">                   str = <span class="string">""</span></span><br><span class="line">                   <span class="keyword">for</span> li <span class="keyword">in</span> li_list:</span><br><span class="line">                       <span class="keyword">if</span> li.string <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">                           str += li.string + <span class="string">','</span></span><br><span class="line">                       <span class="keyword">else</span>:</span><br><span class="line">                           str += <span class="string">','</span></span><br><span class="line">                   <span class="keyword">if</span> i != <span class="number">0</span>:</span><br><span class="line">                       file.write(str + <span class="string">'\n'</span>)</span><br><span class="line">                   i += <span class="number">1</span></span><br><span class="line">       file.close()</span><br></pre></td></tr></table></figure>
+<h2 id="3-控制函数"><a href="#3-控制函数" class="headerlink" title="3. 控制函数"></a>3. 控制函数</h2><p>由于月份格式需两位，所以10月之前的月份需要补0，例如2018年6月需为：201806，所以单独写了一个函数生成月份列表。当然也尝试了python的库，发现实现很麻烦，所以自己实现了月份列表的方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">monthList</span><span class="params">(self, beginDate, endDate)</span>:</span></span><br><span class="line">    mList = []</span><br><span class="line">    mList.append(beginDate)</span><br><span class="line">    begin = int(beginDate)</span><br><span class="line">    end = int(endDate)</span><br><span class="line">    beginY = int(beginDate[<span class="number">0</span>:<span class="number">4</span>])</span><br><span class="line">    beginM = int(beginDate[<span class="number">4</span>:<span class="number">6</span>])</span><br><span class="line">    <span class="keyword">while</span> begin &lt; end:</span><br><span class="line">        tdate = <span class="string">""</span></span><br><span class="line">        <span class="keyword">if</span> beginM == <span class="number">12</span>:</span><br><span class="line">            beginY += <span class="number">1</span></span><br><span class="line">            beginM = <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            beginM += <span class="number">1</span></span><br><span class="line">        tdate += str(beginY)</span><br><span class="line">        <span class="keyword">if</span> beginM &lt; <span class="number">10</span>:</span><br><span class="line">            tdate += <span class="string">'0'</span>+str(beginM)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            tdate += str(beginM)</span><br><span class="line">        mList.append(tdate)</span><br><span class="line">        begin = beginY*<span class="number">100</span>+beginM</span><br><span class="line">    <span class="keyword">return</span> mList</span><br></pre></td></tr></table></figure>
+<p>控制函数首先读取 getCitylist生成的citylist.csv，然后通过monthlist获得需要抓取的月份list，通过循环控制生成城市的天气urllist，然后调用cityDl抓取天气数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">taskControler</span><span class="params">(self)</span>:</span></span><br><span class="line">    citylist = list(csv.reader(open(<span class="string">'citylist.csv'</span>, <span class="string">'r'</span>)))</span><br><span class="line">    timelist = self.monthList(<span class="string">"201101"</span>, <span class="string">"201806"</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> citylist:</span><br><span class="line">        cityurl = i[<span class="number">1</span>][:<span class="number">-10</span>]</span><br><span class="line">        cityname = i[<span class="number">0</span>]</span><br><span class="line">        print(cityurl,cityname)</span><br><span class="line">        urllist = []</span><br><span class="line">        <span class="keyword">for</span> d <span class="keyword">in</span> timelist:</span><br><span class="line">            turl = <span class="string">""</span></span><br><span class="line">            turl = cityurl+str(d)+<span class="string">".html"</span></span><br><span class="line">            urllist.append(turl)</span><br><span class="line">        print(urllist)</span><br><span class="line">        self.cityDl(urllist, cityname)</span><br></pre></td></tr></table></figure>
+<h1 id="0x03-关键点"><a href="#0x03-关键点" class="headerlink" title="0x03 关键点"></a>0x03 关键点</h1><p>整体来说这个网站的抓取很简单，笔者甚至认为算不上爬虫任务。在其中有两个关键点帮助笔者高效的完成了任务：</p>
+<h2 id="1-python的数组切片"><a href="#1-python的数组切片" class="headerlink" title="1. python的数组切片"></a>1. python的数组切片</h2><p>python对数组的切片功能很强大，以数组：[0,1,2,3,4,5,6,7,8,9]举例</p>
+<ol>
+<li><p>取第四至第六个元素：</p>
+<p>由于切片中用的range，所以需要4:7</p>
+<p>IN：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line">a[<span class="number">4</span>:<span class="number">7</span>]</span><br></pre></td></tr></table></figure>
+<p>OUT：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="2">
+<li><p>取倒数第一个元素</p>
+<p>IN：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line">a[<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
+<p>OUT：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">9</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>取后5个元素</p>
+<p>IN：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line">a[<span class="number">-5</span>：]</span><br></pre></td></tr></table></figure>
+<p>OUT：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="4">
+<li><p>取除去后5个元素的数组</p>
+<p>IN：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line">a[:<span class="number">-5</span>]</span><br></pre></td></tr></table></figure>
+<p>OUT：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="5">
+<li><p>每三个数取一个数</p>
+<p>IN：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line">a[::<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<p>OUT：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">0</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>]</span><br></pre></td></tr></table></figure>
+<p>python提供的切片真的很方便，当然还有很多骚手法等待大家挖掘，这里就不一一列举</p>
+</li>
+</ol>
+<h2 id="2-Beautiful-Soup"><a href="#2-Beautiful-Soup" class="headerlink" title="2. Beautiful Soup"></a>2. Beautiful Soup</h2><blockquote>
+<p><a href="http://www.crummy.com/software/BeautifulSoup/" target="_blank" rel="noopener">Beautiful Soup</a> is a Python library for pulling data out of HTML and XML files. It works with your favorite parser to provide idiomatic ways of navigating, searching, and modifying the parse tree. It commonly saves programmers hours or days of work. </p>
+</blockquote>
+<p>Beautiful Soup提供了一套十分好用的html解析器，可以不用直面正则表达式，并且可以使用很容易理解的代码完成页面解析、数据提取。以下是各种解析器的对比，具体使用可以参考官网。</p>
+<p><img src="/2018/08/06/爬取3000个城市与地区8年天气数据/bs.png" alt="1533610947301"></p>
+<p>在本例中，笔者使用了beautiful soup去城市月份天气页中过滤天气数据：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ul_list = weather.select(<span class="string">'ul'</span>)</span><br><span class="line">..............</span><br><span class="line">li_list = ul.select(<span class="string">'li'</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="0x04-效果"><a href="#0x04-效果" class="headerlink" title="0x04 效果"></a>0x04 效果</h1><p>代码总共运行了有3天左右，中间由于错误和断网终端了几次，实际耗时更多。共采集了3180个城市的数据，300M大小。</p>
+<p><img src="/2018/08/06/爬取3000个城市与地区8年天气数据/dl.png" alt="1533611572212"></p>
+<h1 id="0x05-可改进点"><a href="#0x05-可改进点" class="headerlink" title="0x05 可改进点"></a>0x05 可改进点</h1><h2 id="1-错误及异常处理"><a href="#1-错误及异常处理" class="headerlink" title="1.错误及异常处理"></a>1.错误及异常处理</h2><p>在运行过程中，多次因为网络原因和URL错误导致程序中断，可以通过添加异常处理进行跳过，并记录访问异常URL</p>
+<h2 id="2-多线程"><a href="#2-多线程" class="headerlink" title="2.多线程"></a>2.多线程</h2><p>单线程跑程序过慢，大部分时间消耗在等待HTTP响应上，其实可以通过多线程，并行任务。</p>
+<p>不过python的多线程只会调用一个核。</p>
+<blockquote>
+<p>Python的线程虽然是真正的线程，但解释器执行代码时，有一个GIL锁：Global Interpreter Lock，任何Python线程执行前，必须先获得GIL锁，然后，每执行100条字节码，解释器就自动释放GIL锁，让别的线程有机会执行。这个GIL全局锁实际上把所有线程的执行代码都给上了锁，所以，多线程在Python中只能交替执行，即使100个线程跑在100核CPU上，也只能用到1个核。 </p>
+</blockquote>
+<p>后期有时间优化。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/12/《程序员的数学一》读书小结0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nullts">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nullts's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/12/《程序员的数学一》读书小结0/" itemprop="url">《程序员的数学一》读书小结0</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-12T17:57:47+08:00">
+                2018-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/基于Pyecharts的数据可视化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -860,7 +1209,7 @@ A[Hard edge] -->B(Round edge)
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -871,7 +1220,7 @@ A[Hard edge] -->B(Round edge)
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -882,7 +1231,7 @@ A[Hard edge] -->B(Round edge)
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
