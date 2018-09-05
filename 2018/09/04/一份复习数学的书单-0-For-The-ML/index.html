@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="书单,ML ， 数学," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="0x00 开始其实从很早就接触ML，大学时期做的一个比赛会用一些决策树和Q-learning的东西，不过现在回忆起来，当时简直是盲人摸象都算不上。之前给客户做数据时，会有些数据挖掘的需求，也自己看了数据挖掘和ML的一些书，但书中很多公式一知半解，一本书看到一半时基本没法看下去了，然后下定决心对ML相关数学进行重新复习。摸索一段时间后，找了一些好的书和资料，有一些收获，在此整理归纳。 0x01 书单">
+<meta name="keywords" content="书单,ML ， 数学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一份复习数学的书单[0]--For The ML">
+<meta property="og:url" content="http://yoursite.com/2018/09/04/一份复习数学的书单-0-For-The-ML/index.html">
+<meta property="og:site_name" content="Nullts&#39;s Blog">
+<meta property="og:description" content="0x00 开始其实从很早就接触ML，大学时期做的一个比赛会用一些决策树和Q-learning的东西，不过现在回忆起来，当时简直是盲人摸象都算不上。之前给客户做数据时，会有些数据挖掘的需求，也自己看了数据挖掘和ML的一些书，但书中很多公式一知半解，一本书看到一半时基本没法看下去了，然后下定决心对ML相关数学进行重新复习。摸索一段时间后，找了一些好的书和资料，有一些收获，在此整理归纳。 0x01 书单">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/一份复习数学的书单-0-For-The-ML/课本.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/一份复习数学的书单-0-For-The-ML/USTC概率论.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/一份复习数学的书单-0-For-The-ML/programmath.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/一份复习数学的书单-0-For-The-ML/数学女孩.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/一份复习数学的书单-0-For-The-ML/programmath2.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/一份复习数学的书单-0-For-The-ML/programmath3.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/一份复习数学的书单-0-For-The-ML/plsd.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/一份复习数学的书单-0-For-The-ML/xxdsjhyy.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/一份复习数学的书单-0-For-The-ML/xxdsygzyx.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/一份复习数学的书单-0-For-The-ML/introlinear.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/一份复习数学的书单-0-For-The-ML/tj.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/一份复习数学的书单-0-For-The-ML/practice.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/一份复习数学的书单-0-For-The-ML/wx.png">
+<meta property="og:updated_time" content="2018-09-05T07:49:40.846Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一份复习数学的书单[0]--For The ML">
+<meta name="twitter:description" content="0x00 开始其实从很早就接触ML，大学时期做的一个比赛会用一些决策树和Q-learning的东西，不过现在回忆起来，当时简直是盲人摸象都算不上。之前给客户做数据时，会有些数据挖掘的需求，也自己看了数据挖掘和ML的一些书，但书中很多公式一知半解，一本书看到一半时基本没法看下去了，然后下定决心对ML相关数学进行重新复习。摸索一段时间后，找了一些好的书和资料，有一些收获，在此整理归纳。 0x01 书单">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/04/一份复习数学的书单-0-For-The-ML/课本.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/04/一份复习数学的书单-0-For-The-ML/"/>
+
+
+
+
+
+  <title>一份复习数学的书单[0]--For The ML | Nullts's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1a85a960eba513cb9d988f1e3e409a7a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Nullts's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/一份复习数学的书单-0-For-The-ML/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nullts">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nullts's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">一份复习数学的书单[0]--For The ML</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T20:12:34+08:00">
+                2018-09-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/读书/" itemprop="url" rel="index">
+                    <span itemprop="name">读书</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/读书/数学/" itemprop="url" rel="index">
+                    <span itemprop="name">数学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="0x00-开始"><a href="#0x00-开始" class="headerlink" title="0x00 开始"></a>0x00 开始</h1><p>其实从很早就接触ML，大学时期做的一个比赛会用一些决策树和Q-learning的东西，不过现在回忆起来，当时简直是盲人摸象都算不上。之前给客户做数据时，会有些数据挖掘的需求，也自己看了数据挖掘和ML的一些书，但书中很多公式一知半解，一本书看到一半时基本没法看下去了，然后下定决心对ML相关数学进行重新复习。摸索一段时间后，找了一些好的书和资料，有一些收获，在此整理归纳。</p>
+<h1 id="0x01-书单"><a href="#0x01-书单" class="headerlink" title="0x01 书单"></a>0x01 书单</h1><h2 id="1-课本-套书"><a href="#1-课本-套书" class="headerlink" title="1. 课本(套书)"></a>1. 课本(套书)</h2><p><img src="/2018/09/04/一份复习数学的书单-0-For-The-ML/课本.png" alt="课本"></p>
+<p>高等数学(上) <a href="https://book.douban.com/subject/2112359/" target="_blank" rel="noopener">https://book.douban.com/subject/2112359/</a><br>高等数学(下) <a href="https://book.douban.com/subject/2195654/" target="_blank" rel="noopener">https://book.douban.com/subject/2195654/</a><br>线性代数 <a href="https://book.douban.com/subject/2197140/" target="_blank" rel="noopener">https://book.douban.com/subject/2197140/</a><br>概率论及数理统计 <a href="https://book.douban.com/subject/3165271/" target="_blank" rel="noopener">https://book.douban.com/subject/3165271/</a></p>
+<p>其实课本大家的评价都不是太高，无非三点导致了困哪：<br>[1] 中国作者大都上来说的比较难，让初学者比较懵，作者有时很难从一个初学者的角度去著书；<br>[2] 对于我学习CS学科，开始学高数时，不知道学这些东西对我的学科学习有什么帮助，书中也没有相应的引导；<br>[3] 缺少趣味性，中国太强调学习的困难性，这种思维习惯会带到课本中来，从而没有展现数学最有趣的那一面。<br>从现在看三本课本读来并非全无益处，毕竟是同济和浙大两个985学校老师出的，知识的体系性和完整性还是较好的。作为练习册还是很好的。</p>
+<p>这里另外提一个概率论与数理统计的课本，笔者并未读过，但评价很高，可以替代浙大的版本。是USTC陈希孺老师写的概率论与数理统计，可以替换浙大的版本去读。</p>
+<p>概率论与数理统计 <a href="https://book.douban.com/subject/2201479/" target="_blank" rel="noopener">概率论与数理统计</a></p>
+<p><img src="/2018/09/04/一份复习数学的书单-0-For-The-ML/USTC概率论.png" alt="1536126191909"></p>
+<h2 id="2-程序员的数学-套书"><a href="#2-程序员的数学-套书" class="headerlink" title="2. 程序员的数学(套书)"></a>2. 程序员的数学(套书)</h2><p>这套书共三册，一套日本人写书，日本人写的技术书都很容易上手，开始的时候简单到你在怀疑书的标题。这套书并不是按照 微积分、线性代数、概率论的顺序，三本书两个作者，第一本是结城浩，一个程序员，后两本的作者是平冈和幸和堀玄，都是工程学博士。</p>
+<p><img src="/2018/09/04/一份复习数学的书单-0-For-The-ML/programmath.jpg" alt="程序员的数学一"></p>
+<p>程序员的数学 <a href="https://book.douban.com/subject/19949020/" target="_blank" rel="noopener">https://book.douban.com/subject/19949020/</a><br>第一册说的更多的是一些程序中的数学思维方式，很入门很基础，性价比并不是很高,读起来耗时并不会太长。</p>
+<p>但是,对！这里是有”但是”的,结城浩的这本书写的太简单了,但你绝不能低估作者，结城浩绝对是写数学书的好手,因为他有一套笔者觉得很牛逼的书。封面是这样的：</p>
+<p><img src="/2018/09/04/一份复习数学的书单-0-For-The-ML/数学女孩.png" alt="1536126595919"></p>
+<p>数学女孩！对！你没看错，这套书的名字分别是：数±学=女×孩（其实这本是微积分的内容），数±学=女×孩(2)-费马大定理，数±学=女×孩(2)-哥德尔猜想。笔者读第一本书时，觉得是一本披着数学外衣的纯情小说，看了半册后发现这是一本披着纯情故事的数学书！！！不过此套书很有趣，读起来太有意思了，以后细述。作者准备写六册，拭目以待。</p>
+<p><img src="/2018/09/04/一份复习数学的书单-0-For-The-ML/programmath2.jpg" alt="1536127204330"></p>
+<p>程序员的数学2 <a href="https://book.douban.com/subject/26593822/" target="_blank" rel="noopener">https://book.douban.com/subject/26593822/</a></p>
+<p>第二册是概率统计，作者从提供了独特的上帝视角，从面积和体积去理解概率问题，很适合入门和复习概率论。</p>
+<p><img src="/2018/09/04/一份复习数学的书单-0-For-The-ML/programmath3.jpg" alt="程序员的数学3"></p>
+<p>程序员的数学3 <a href="https://book.douban.com/subject/26740548/" target="_blank" rel="noopener">https://book.douban.com/subject/26740548/</a><br>第三册是线性代数，此书作者用了很多图让读者理解矩阵的变换作用，为了应书名，书中对计算机计算矩阵相关的数值算法进行了详解，很适合程序员复习线性代数。</p>
+<h2 id="3-普林斯顿微积分读本"><a href="#3-普林斯顿微积分读本" class="headerlink" title="3. 普林斯顿微积分读本"></a>3. 普林斯顿微积分读本</h2><p><img src="/2018/09/04/一份复习数学的书单-0-For-The-ML/plsd.png" alt="1536128524102"></p>
+<p>普林斯顿微积分读本 <a href="https://book.douban.com/subject/4926707/" target="_blank" rel="noopener">https://book.douban.com/subject/4926707/</a></p>
+<p>这本书确实是普林斯顿的一个数学博士写的，虽说这本书名字很夸张，有点让普林斯顿背书的感觉。此书基本从高中起点开始说起，本身应该是给普林斯顿学生入门用的，从函数说到微分方程。此书算技术书里翻译质量的上乘，很多大龄程序员也在靠这本书复习微积分，进入ML。笔者阅读半本，觉得如故事书一般，作者是娓娓道来，同时伴有很多实际中的应用场景，满足读者对应用的好奇心。</p>
+<h2 id="4-线性代数的几何意义"><a href="#4-线性代数的几何意义" class="headerlink" title="4. 线性代数的几何意义"></a>4. 线性代数的几何意义</h2><p><img src="/2018/09/04/一份复习数学的书单-0-For-The-ML/xxdsjhyy.png" alt="线性代数的几何意义"></p>
+<p>这本书是中文里最好的线性代数书，没有之一！读这本书，从头读，如读小说一般，引人入胜，后半部越来越精彩，读着的时候，心里都在鼓掌，精彩精彩。如果阅读别的线性代数书有困难，请读此书！ 极力推荐！此书可再配合3Blue1Brown的视频一起观看理解。嗯，这套视频是说线性代数最好的视频，没有之一！！</p>
+<p>线性代数的本质 <a href="https://space.bilibili.com/88461692/#/channel/detail?cid=9450" target="_blank" rel="noopener">https://space.bilibili.com/88461692/#/channel/detail?cid=9450</a> （没有看错，要在B站学数学）</p>
+<h2 id="5-线性代数应该这样学"><a href="#5-线性代数应该这样学" class="headerlink" title="5. 线性代数应该这样学"></a>5. 线性代数应该这样学</h2><p><img src="/2018/09/04/一份复习数学的书单-0-For-The-ML/xxdsygzyx.png" alt="线性代数应该这样学"></p>
+<p>线性代数应该这样学 <a href="https://book.douban.com/subject/3715623/" target="_blank" rel="noopener">https://book.douban.com/subject/3715623/</a></p>
+<p>此书，大学时就读了一些，说实话当时觉得太抽象（可能也是没认真读），就放弃了。现在读起来，作者提供了从线性映射和算子的角度学习线性代数，加深对线性代数的认识。</p>
+<h2 id="6-Introduction-to-Linear-Algebra"><a href="#6-Introduction-to-Linear-Algebra" class="headerlink" title="6.  Introduction to Linear Algebra"></a>6.  Introduction to Linear Algebra</h2><p><img src="/2018/09/04/一份复习数学的书单-0-For-The-ML/introlinear.png" alt="线性代数"></p>
+<p>Introduction to Linear Algebra <a href="https://book.douban.com/subject/26824921/" target="_blank" rel="noopener">https://book.douban.com/subject/26824921/</a></p>
+<p>这本书其实并未细读，这本书是MIT线性代数的课本，上大学的时候看视频知道此书的，老爷子Gilbert Strang说课很有趣，他还有一门复习微积分的公开课也很棒。现在看来大家对此书评价很高，准备作为线性代数体系性的整理读物。</p>
+<h2 id="7-行为科学统计概要"><a href="#7-行为科学统计概要" class="headerlink" title="7.  行为科学统计概要"></a>7.  行为科学统计概要</h2><p><img src="/2018/09/04/一份复习数学的书单-0-For-The-ML/tj.png" alt="1536130861056"></p>
+<p>行为科学统计概要 <a href="https://book.douban.com/subject/4268015/" target="_blank" rel="noopener">https://book.douban.com/subject/4268015/</a><br>统计学入门书，通俗易懂，结合了很多实例来展示统计的作用。</p>
+<h2 id="9-练习"><a href="#9-练习" class="headerlink" title="9. 练习"></a>9. 练习</h2><p><img src="/2018/09/04/一份复习数学的书单-0-For-The-ML/practice.png" alt="1536131141659"></p>
+<p>恕笔者比较愚钝，觉得数学如果学了不练习等于白学，所以需要一定的练习量去配合读书，巩固阅读效果。说到做题，我大中华说做题第二，没有哪国敢说是第一的。所以笔者买了当年考研的复习书作为练习册检验学习成果。</p>
+<h1 id="0x02-读书顺序"><a href="#0x02-读书顺序" class="headerlink" title="0x02 读书顺序"></a>0x02 读书顺序</h1><p>课本是数年前在学校读的，此次复习时开始读的是课本的概率论及数理统计，中间遇到微积分，开始阅读普林斯顿微积分读本复习微积分。同时开始阅读程序员的数学，程序员数学1简单可速读，读23前，读线性代数的几何意义，然后读23以及读本完成线性代数和概率论的复习。然后阅读线性代数应该这样学，行为科学统计概要前半部分简单可速读，后部分慢读。中间配以习题练习，以及夹读ML相关书目作为关联应用。</p>
+<blockquote>
+<p>如果有同样在为了ML复习数学的同仁，可加笔者微信一起交流：</p>
+</blockquote>
+<p><img src="/2018/09/04/一份复习数学的书单-0-For-The-ML/wx.png" alt="1536132698055"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/书单/" rel="tag"># 书单</a>
+          
+            <a href="/tags/ML-，-数学/" rel="tag"># ML ， 数学</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/06/爬取3000个城市与地区8年天气数据/" rel="next" title="爬取3000个城市与地区8年天气数据">
+                <i class="fa fa-chevron-left"></i> 爬取3000个城市与地区8年天气数据
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Nullts" />
+          <p class="site-author-name" itemprop="name">Nullts</p>
+           
+              <p class="site-description motion-element" itemprop="description">人生本就虚无，所谓永恒的意义也只是经历的一切。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x00-开始"><span class="nav-number">1.</span> <span class="nav-text">0x00 开始</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-书单"><span class="nav-number">2.</span> <span class="nav-text">0x01 书单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-课本-套书"><span class="nav-number">2.1.</span> <span class="nav-text">1. 课本(套书)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-程序员的数学-套书"><span class="nav-number">2.2.</span> <span class="nav-text">2. 程序员的数学(套书)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-普林斯顿微积分读本"><span class="nav-number">2.3.</span> <span class="nav-text">3. 普林斯顿微积分读本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-线性代数的几何意义"><span class="nav-number">2.4.</span> <span class="nav-text">4. 线性代数的几何意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-线性代数应该这样学"><span class="nav-number">2.5.</span> <span class="nav-text">5. 线性代数应该这样学</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Introduction-to-Linear-Algebra"><span class="nav-number">2.6.</span> <span class="nav-text">6.  Introduction to Linear Algebra</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-行为科学统计概要"><span class="nav-number">2.7.</span> <span class="nav-text">7.  行为科学统计概要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-练习"><span class="nav-number">2.8.</span> <span class="nav-text">9. 练习</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-读书顺序"><span class="nav-number">3.</span> <span class="nav-text">0x02 读书顺序</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nullts</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+  <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

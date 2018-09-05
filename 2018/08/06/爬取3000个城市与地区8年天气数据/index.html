@@ -82,7 +82,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Python,Data ， 爬虫 ， 天气," />
+  <meta name="keywords" content="Python,Data,爬虫,天气," />
 
 
 
@@ -99,7 +99,7 @@
 
 
 <meta name="description" content="0x00 为什么采集天气数据一日走在路上，在想关于销售预测的相关，发现很多预测状况都与天气有巨大的关联，最近也正好在看爬虫相关的，搜索了一番，发现网上有按月展示的数据，但无数据包，所以开始了自己爬取数据的过程。由于网站提供的数据很好采集，也无限制，所以采集的很顺利，总共采集了大概800W条数据。 0x01分析页面在城市列表页：http://lishi.tianqi.com/ 可通过每个城市名点击，">
-<meta name="keywords" content="Python,Data ， 爬虫 ， 天气">
+<meta name="keywords" content="Python,Data,爬虫,天气">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬取3000个城市与地区8年天气数据">
 <meta property="og:url" content="http://yoursite.com/2018/08/06/爬取3000个城市与地区8年天气数据/index.html">
@@ -110,7 +110,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/08/06/爬取3000个城市与地区8年天气数据/北京201806天气详情页.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/06/爬取3000个城市与地区8年天气数据/bs.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/06/爬取3000个城市与地区8年天气数据/dl.png">
-<meta property="og:updated_time" content="2018-08-07T03:21:07.979Z">
+<meta property="og:updated_time" content="2018-09-05T07:56:22.297Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬取3000个城市与地区8年天气数据">
 <meta name="twitter:description" content="0x00 为什么采集天气数据一日走在路上，在想关于销售预测的相关，发现很多预测状况都与天气有巨大的关联，最近也正好在看爬虫相关的，搜索了一番，发现网上有按月展示的数据，但无数据包，所以开始了自己爬取数据的过程。由于网站提供的数据很好采集，也无限制，所以采集的很顺利，总共采集了大概800W条数据。 0x01分析页面在城市列表页：http://lishi.tianqi.com/ 可通过每个城市名点击，">
@@ -432,8 +432,6 @@
 <p>OUT：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<ol start="2">
 <li><p>取倒数第一个元素</p>
 <p>IN：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line">a[<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
@@ -446,16 +444,12 @@
 <p>OUT：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<ol start="4">
 <li><p>取除去后5个元素的数组</p>
 <p>IN：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line">a[:<span class="number">-5</span>]</span><br></pre></td></tr></table></figure>
 <p>OUT：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<ol start="5">
 <li><p>每三个数取一个数</p>
 <p>IN：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line">a[::<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
@@ -499,7 +493,11 @@
           
             <a href="/tags/Python/" rel="tag"># Python</a>
           
-            <a href="/tags/Data-，-爬虫-，-天气/" rel="tag"># Data ， 爬虫 ， 天气</a>
+            <a href="/tags/Data/" rel="tag"># Data</a>
+          
+            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
+          
+            <a href="/tags/天气/" rel="tag"># 天气</a>
           
         </div>
       
@@ -512,8 +510,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/12/《程序员的数学一》读书小结0/" rel="next" title="《程序员的数学一》读书小结0">
-                <i class="fa fa-chevron-left"></i> 《程序员的数学一》读书小结0
+              <a href="/2018/07/11/基于Pyecharts的数据可视化/" rel="next" title="基于Pyecharts的数据可视化">
+                <i class="fa fa-chevron-left"></i> 基于Pyecharts的数据可视化
               </a>
             
           </div>
@@ -521,6 +519,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/04/一份复习数学的书单-0-For-The-ML/" rel="prev" title="一份复习数学的书单[0]--For The ML">
+                一份复习数学的书单[0]--For The ML <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -608,7 +610,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -619,7 +621,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
