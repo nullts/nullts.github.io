@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="中台,用户响应力,数字化," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="0X00 题记“中台”的名字大概听了一年有余，其间参加了阿里云的数据中台培训，当时更多的记住了技术层面的事情，对“中台”两个字的理解其实没有超出“中间的平台”的认识。“中台”听到的越来越多，中间很长一段时间只是把他当成某种技术方案别名。最近一直很多关于中台的问题都未想通，找了很多材料，阅读了很多文章，略有心得，找到点“看山还是山，看水还是水”的感觉,现串联整理并加一些自己的感受成文。Headfir">
+<meta name="keywords" content="中台,用户响应力,数字化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅入浅出“中台”">
+<meta property="og:url" content="http://yoursite.com/2020/04/25/浅入浅出“中台”/index.html">
+<meta property="og:site_name" content="Nullts&#39;s Blog">
+<meta property="og:description" content="0X00 题记“中台”的名字大概听了一年有余，其间参加了阿里云的数据中台培训，当时更多的记住了技术层面的事情，对“中台”两个字的理解其实没有超出“中间的平台”的认识。“中台”听到的越来越多，中间很长一段时间只是把他当成某种技术方案别名。最近一直很多关于中台的问题都未想通，找了很多材料，阅读了很多文章，略有心得，找到点“看山还是山，看水还是水”的感觉,现串联整理并加一些自己的感受成文。Headfir">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2020/04/25/浅入浅出“中台”/image-20200424105944001.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/25/浅入浅出“中台”/image-20200424135434427.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/25/浅入浅出“中台”/image-20200424144326465.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/25/浅入浅出“中台”/image-20200424151313491.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/25/浅入浅出“中台”/image-20200424151957032.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/25/浅入浅出“中台”/image-20200424152824020.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/25/浅入浅出“中台”/image-20200424230240326.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/25/浅入浅出“中台”/image-20200424230752539.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/25/浅入浅出“中台”/image-20200424231238999.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/25/浅入浅出“中台”/image-20200424232310867.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/25/浅入浅出“中台”/image-20200425094713843.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/25/浅入浅出“中台”/1-3.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/25/浅入浅出“中台”/image-20200425151806052.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/25/浅入浅出“中台”/4-EventStorming-1.png">
+<meta property="og:image" content="https://insights.thoughtworks.cn/wp-content/uploads/2019/12/7-EventStormingDDD%E4%B8%AD%E5%8F%B0.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/25/浅入浅出“中台”/8940211-520bde42c09dc243.webp">
+<meta property="og:image" content="http://yoursite.com/2020/04/25/浅入浅出“中台”/8940211-3103a2f265323873-1587829762916.webp">
+<meta property="og:image" content="http://yoursite.com/2020/04/25/浅入浅出“中台”/image-20200425224714951.png">
+<meta property="og:updated_time" content="2020-04-25T16:21:10.785Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅入浅出“中台”">
+<meta name="twitter:description" content="0X00 题记“中台”的名字大概听了一年有余，其间参加了阿里云的数据中台培训，当时更多的记住了技术层面的事情，对“中台”两个字的理解其实没有超出“中间的平台”的认识。“中台”听到的越来越多，中间很长一段时间只是把他当成某种技术方案别名。最近一直很多关于中台的问题都未想通，找了很多材料，阅读了很多文章，略有心得，找到点“看山还是山，看水还是水”的感觉,现串联整理并加一些自己的感受成文。Headfir">
+<meta name="twitter:image" content="http://yoursite.com/2020/04/25/浅入浅出“中台”/image-20200424105944001.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/04/25/浅入浅出“中台”/"/>
+
+
+
+
+
+  <title>浅入浅出“中台” | Nullts's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1a85a960eba513cb9d988f1e3e409a7a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Nullts's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/25/浅入浅出“中台”/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nullts">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nullts's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">浅入浅出“中台”</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-25T10:10:10+08:00">
+                2020-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/中台/" itemprop="url" rel="index">
+                    <span itemprop="name">中台</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="0X00-题记"><a href="#0X00-题记" class="headerlink" title="0X00 题记"></a>0X00 题记</h1><p>“中台”的名字大概听了一年有余，其间参加了阿里云的数据中台培训，当时更多的记住了技术层面的事情，对“中台”两个字的理解其实没有超出“中间的平台”的认识。“中台”听到的越来越多，中间很长一段时间只是把他当成某种技术方案别名。最近一直很多关于中台的问题都未想通，找了很多材料，阅读了很多文章，略有心得，找到点“看山还是山，看水还是水”的感觉,现串联整理并加一些自己的感受成文。Headfirst是深入浅出，我就浅入浅出“中台”。</p>
+<p>在这需要感谢“Thoughtworks”的文章，很多未想通的问题都是他们的insight让我醍醐灌顶。“Thoughtworks”是第三家让我由衷崇拜的公司，第一家是google，第二家是spaceX。</p>
+<h1 id="0x01-WHY"><a href="#0x01-WHY" class="headerlink" title="0x01 WHY"></a>0x01 WHY</h1><h2 id="1-中台如何而来"><a href="#1-中台如何而来" class="headerlink" title="1.中台如何而来"></a>1.中台如何而来</h2><p>追述下“中台”的来历，江湖上传闻最多的应该属阿里巴巴的版本了（好像也就一个版本）。话说 2015 年底，马云到访芬兰参观了 Supercell 游戏公司，学习所谓的“大中台架构”，据此调整阿里巴巴的组织结构，以避免了大公司常见的部门与部门争夺资源，不同的小组做同样的事情。回到国内不久，阿里巴巴就启动双中台战略——大中台小前台。</p>
+<p>Supercell将120人的产品团队，拆解为20多个自主管理的小团队，从而降低管理成本、提高团队协作效率一家仅有300名员工，却接连推出爆款游戏，是全球最会赚钱的明星游戏公司。<br>在Supercell，一个游戏通常4-5个人研发，Supercell面向全球市场推出了《部落冲突》、《卡通农场》、《海岛奇兵》和《皇室战争》都是爆款游戏。</p>
+<p><img src="/2020/04/25/浅入浅出“中台”/image-20200424105944001.png" alt="image-20200424105944001"></p>
+<p>再后来到处都在喊中台，到处都是中台，中台这个词在我看来已经被滥用了。</p>
+<ul>
+<li>在有些人眼里：中台就是技术平台，像微服务开发框架、Devops平台、PaaS平台，容器云之类的，人们都叫它“技术中台”。</li>
+<li>在有些人眼里：中台就是业务/数据平台，像最常见的什么用户中心，订单中心，各种微服务、BI集散地，人们都叫它“业务/数据中台”。</li>
+<li>在有些人眼里：中台应该是组织的事情，这类组织中台在企业中主要起到投资评估与投后管理的作用，类似于企业内部资源调度中心和内部创新孵化组织，人们叫它“组织中台”</li>
+</ul>
+<p>说很多，但最终还是有这几个问题，我们需要面对的</p>
+<p><strong>中台到底是什么？它对于企业的意义到底是什么？当我们谈中台时我们到底在谈些什么？</strong></p>
+<p>前文一直在说“中台”，我接触到中台的时候，也一直在“中台”的范围中转圈，并没有从一个企业的视角去思考，并不是所有的企业都是阿里、supercell，投入如此重、甚至重购整个组织的中台，到底有什么价值。有了新的两个问题：</p>
+<ol>
+<li><strong>企业为什么要平台化？</strong></li>
+<li><strong>企业为什么要建中台？</strong></li>
+</ol>
+<h3 id="企业为什么要平台化？"><a href="#企业为什么要平台化？" class="headerlink" title="企业为什么要平台化？"></a><1>企业为什么要平台化？</1></h3><p>不断快速响应、探索、挖掘、引领⽤户的需求，才是企业得以⽣存和持续发展的关键因素。</p>
+<p>那些真正尊重用户，甚⾄不惜调整⾃己颠覆⾃己来响应⽤户的企业将在这场以⽤户为中心的商业战争中得以⽣存和发展；⽽反之，那些在过去的成就上故步⾃封，存在侥幸⼼理希望⽤户会像之前一样继续追随⾃己的企业则会被用户淘汰。</p>
+<p><img src="/2020/04/25/浅入浅出“中台”/image-20200424135434427.png" alt="image-20200424135434427"></p>
+<p>平台的最重要是它赋予或加强了企业在以用户为中心的现代商业战争中最最最核心的能力：<strong>⽤户响应力</strong>。这种能力可以帮助企业在商战上先发制⼈，始终抢得先机。</p>
+<p>这么说比较虚，什么是用户响应力，举个栗子。疫情期间，我们需要百来号的人一起线上会议，钉钉快速响应企业这一需求，快速提升原有视频会议最大容量。这就是钉钉将⾃己的技术和业务能力沉淀出一套综合能力平台，具备了对于前台业务变化及创新的快速响应能力。天下武功，无坚不破，为快不破。</p>
+<p><strong>“用户响应力”</strong>，这五个字是我理解中台的第一步。</p>
+<h3 id="企业为什么要建中台？"><a href="#企业为什么要建中台？" class="headerlink" title="企业为什么要建中台？"></a><2>企业为什么要建中台？</2></h3><p>说中台，先对前后台做明确：</p>
+<ul>
+<li><p><strong>前台</strong>：企业前方市场的前端平台，是企业的终端用户直接使用或交互的系统。比如像微信、QQ、淘宝这样的APP、电商、内容等网站；</p>
+</li>
+<li><p><strong>后台</strong>：企业内部支撑的管理平台，是企业管理核心能力的系统。比如像企业ERP管理平台、企业财务管理平台等系统。</p>
+</li>
+</ul>
+<p>前台是对接用户的，所以系统需要快速响应前端用户的需求，快速创新、快速迭代。简而说来：快速建设、错了就推翻重来、不能耗费太大成本。</p>
+<p>后台是企业对内的，为了支撑前台越来越多的业务，后台不断地建设，系统不断庞大地起来。所以后台系统需要扎实稳定，建成之后往往不能随意改动。简而言之，是需要耗费大力成本建设的基础能力、不能轻易推翻、改动成本极大。</p>
+<p>前台和后台的矛盾，对<strong>“用户响应力”</strong>造成了巨大影响，用户满意度降低，企业的竞争力也逐渐丧失。</p>
+<p>业务问题造成了技术层面的问题，开发工程师天天和产品打架、没日没夜赶需求，回头一想我再抽象一层不就得了。软件开发中遇到的所有问题，都可以通过增加⼀层抽象⽽得以解决!中台由此而诞生。</p>
+<p><img src="/2020/04/25/浅入浅出“中台”/image-20200424144326465.png" alt="image-20200424144326465"></p>
+<p>中台就像是在前台与后台之间添加的⼀组“变速⻮轮”，将前台与后台的速率进行匹配，是前台与后台的桥梁。它为前台而生，易于前台使用，将后台资源顺滑流向用户，响应用户。</p>
+<h2 id="2-需要一个中台吗？"><a href="#2-需要一个中台吗？" class="headerlink" title="2.需要一个中台吗？"></a>2.需要一个中台吗？</h2><p>既然中台很重要，那是不是所有企业都要上一个中台呢，最近中台失败的案例不绝于耳，各种乙方败走，甲方责任人离职，甚至“阿里”的中台也随着几位负责人的调岗和离职，被质疑其是不是“凉了”（当然我认为阿里自身中台很成功）。所以有了一个新的问题：</p>
+<p>“<strong>如果中台是一个解决方案，那么它要解决的问题是什么？</strong>”</p>
+<p>中台的出现是为了提升企业IT能力的复用率；打通数据壁垒；为什么阿里构建的中台取得了成功成为了行业标杆，而在很多传统企业构建中台的规划和建设过程中，总是会遇到这样或那样的问题？阿里和这些企业有什么不同？</p>
+<p>参考Thoughtworks，从中台构建的本质和原则谈起，他们认为有三个很棒原则：</p>
+<h3 id="Strategic-Initiative-Over-Tactic-Initiative-战略举措胜于战术举措"><a href="#Strategic-Initiative-Over-Tactic-Initiative-战略举措胜于战术举措" class="headerlink" title="Strategic Initiative Over Tactic Initiative 战略举措胜于战术举措"></a><1>Strategic Initiative Over Tactic Initiative 战略举措胜于战术举措</1></h3><p><img src="/2020/04/25/浅入浅出“中台”/image-20200424151313491.png" alt="image-20200424151313491"></p>
+<p><strong>首先，当企业在构建自己中台之前，先要确定自己的中台转型能否达到战略举措的高度。</strong>所谓战略举措，意味着企业内部（包含业务和技术）一致认为要解决三个典型问题：提升IT能力复用率、打通数据壁垒、提升应用TTM；当中的一个或者几个。</p>
+<p><strong>战略目标要有阶段性的定义和检查。</strong>在2015年阿里做出的中台战略转型，也同样是一次大刀阔斧的战略转型。这样的转型意味着对于整个企业来说新的组织结构、新的合作方式、新的角色与职责边界的确立。同样，在阿里的案例当中，在聚划算出现之前，由于缺少组织的战略方向引领的时候，“共享业务事业部”的价值和地位同样非常尴尬：构建出来的服务没人用，而前台业务团队所提出的差异化需求都需要在中台承载，导致中台部门工作强度和压力都非常巨大。</p>
+<p>在过去的十几二十年当中，很多业界企业的IT部门都曾经做过的“中台化”化或者“平台化”转型，但如果这一转型过程没有得到组织的战略的支持，没有拉通业务和技术的公司级的决策过程，那么转型就很难将转型拉到战略的高度，很多情况下，即使一个中台或者平台被构建出来，最终都在业务部门的层层压力之下，变得形同虚设，</p>
+<h3 id="Business-Decision-Over-Technical-Decision-业务决策胜于技术决策"><a href="#Business-Decision-Over-Technical-Decision-业务决策胜于技术决策" class="headerlink" title="Business Decision Over Technical Decision 业务决策胜于技术决策"></a><2>Business Decision Over Technical Decision 业务决策胜于技术决策</2></h3><p><img src="/2020/04/25/浅入浅出“中台”/image-20200424151957032.png" alt="image-20200424151957032"></p>
+<p>还是看阿里，阿里中台的前身：共享业务事业部，是一个业务部门。阿里和许多传统企业不同，作为一家互联网公司，其最大的特点是“技术即业务”。技术和业务作为有机的整体，技术架构的重构的实质是业务本身的重构。</p>
+<p>对于传统企业的分类法来说，最简单的就是把一个组织分为“业务团队”和“技术团队”两个部分。业务团队和IT团队是有着清晰的边界和合作模式的。而如果谈战略转型的话，这些企业业务的战略转型，和IT的战略转型可以是异步的，甚至完全不是一件事。<strong>要不要建中台、中台的构建原则以及基本交付形态，应当是一个业务决策而并非一个技术决策</strong>，<strong>业务先行是中台发展的关键前提</strong>。</p>
+<p>对于技术含量更为集中的数据中台和算法中台，虽然目前并没有受到到业务过多的约束，但可以预见当IT构建的数据中台缺少领域专家和数据科学家的参与，同样难以在长期给企业的业务带来价值。由于要提供具有前瞻性的业务洞见，中台对业务领域专家和数据科学家的要求会变得更高而不是更低。如果数据中台的建设是业务决策而不是技术决策，业务的洞见和诉求会在第一时间融入到中台的建设过程中来，中台的价值风险也会相应降低。</p>
+<h3 id="Empowerment-Over-Governance-赋能胜于治理"><a href="#Empowerment-Over-Governance-赋能胜于治理" class="headerlink" title="Empowerment Over Governance 赋能胜于治理"></a><3>Empowerment Over Governance 赋能胜于治理</3></h3><p><img src="/2020/04/25/浅入浅出“中台”/image-20200424152824020.png" alt="image-20200424152824020"></p>
+<p>自从企业构建了IT部门和团队，IT作为企业的成本中心，治理一直都是核心的职责和组织目标。治理的目标总体上是为了控制IT投入成本、提升IT构建效率，进而目标可以衍生出“降低成本、提升复用率、提升IT流程的标准化程度”等多种形态。控制成本和提升业务响应力是站在同一个天平两端的完全不同的需求。10年前，企业在苦苦思考敏捷转型能为自己降低多少IT研发成本；5年前，企业也在思考微服务架构的引入可以为自己降低多少IT投入。慢慢的，企业终于醒悟到，敏捷和微服务都是在为高响应力，而不是在为低成本服务。之所以中台在国内大火，某种意义上是因为国内企业的IT团队仍然在为自己的“成本中心”的定位寻找新的价值点。</p>
+<p>我们再来观察阿里这种“<strong>技术即业务</strong>”的组织——治理其实仅仅是一种表象。通过业务主流程的标准化和中台化，前台的新业务会更快速地被构建出来，而不再需要新业务团队从头到尾完整地构建一遍其他业务部门已经构建过的业务。这时，治理的目标基本上已经完全退让给了<strong>赋能</strong>这一更大的目标。</p>
+<p>跟着前面的思路，如果企业构建自己的平台或者中台，是作为一种战略出发的，并且是由业务团队主导的构建过程，那么这样的中台所要承载的使命，也必然远远大于一个“成本中心”所负担的使命。<strong>淡化治理、强化赋能</strong>的思路，可以使得企业在构建中台的过程中，更多的关注这一战略举措所带来的业务收益，而不会仅仅的关注到降低了多少IT成本；更多地关注野心勃勃的应用团队面向客户的需求来构建新的业务特性，而不是仅仅关注到团队使用了多少中台标准化的能力。</p>
+<p>所以综上：在一个还没有实现“<strong>技术即业务</strong>”的企业当中，构建中台是一个需要通过企业战略引领、业务部门拉动、以构建生态为主要愿景的IT架构建设过程。如果这样的前提条件暂时不能满足，IT部门与其投资来构建一个颇具业务争议性的中台，不如回归到平台的本质——通过平台技术来打通交付瓶颈、构建开发者社区和生态、提供数据自服务平台以赋能业务自主挖掘洞见、通过构建实验平台来加速企业规模化创新的脚步、以及构建企业级用户触点平台以提供统一的用户交互体验。</p>
+<p>“<strong>技术即业务</strong>”，这五个字是我理解中台的第二步。</p>
+<h1 id="0x02WHAT"><a href="#0x02WHAT" class="headerlink" title="0x02WHAT"></a>0x02WHAT</h1><h2 id="1-中台的定义"><a href="#1-中台的定义" class="headerlink" title="1.中台的定义"></a>1.中台的定义</h2><blockquote>
+<p><strong>中台，企业级能力复用平台。</strong></p>
+</blockquote>
+<p>我听过很多定义，但是当我顿悟后，发现这个定义虽然简单，但是准确。这九个字是我理解中台的第三步。</p>
+<h3 id="企业级"><a href="#企业级" class="headerlink" title="企业级"></a><1>企业级</1></h3><p>企业级，定义了中台的范围，中台一定是企业级的。我们建设中台的目标是为了前台，一定要跳出单一的业务线，站在整个企业的视角去审视业务全，寻找可复用的能力进行沉淀。虽然中台的建设过程虽然可以自下而上，以点及面。但驱动力一定是自上而下的，从全局视角出发的，并且需要一定的顶层设计。这一点也引出了中台建设的一个关键难点，就是组织架构的调整和演进以及利益的重新分配是技术所不能解决的，也是中台建设的最强阻力。</p>
+<h3 id="能力"><a href="#能力" class="headerlink" title="能力"></a><2>能力</2></h3><p>企业的能力可能包含多个维度，常见的例如计算能力，技术能力，业务能力，数据能力，AI能力，运营能力，研发能力……其中大部分的能力还可以继续细化和二次展开，从而形成一张多维度的企业能力网。可以说，中台就是企业所有可以被「多前台产品团队」复用能力的载体。</p>
+<h3 id="复用"><a href="#复用" class="headerlink" title="复用"></a><3>复用</3></h3><p>复用，中台的核心价值。可复用性和易复用性是衡量中台建设好坏的重要指标，为了实现复用，需要将更高抽象（例如业务模式级别）的通用业务逻辑通过抽象后下沉到中台，这样前台就会更轻，学习成本和开发维护成本更低，越能更快的适应业务变化；缺点是，抽象级别越高，越难被复用，需要架构师和领域专家对业务有深入的理解和非常强的抽象能力。</p>
+<h3 id="平台"><a href="#平台" class="headerlink" title="平台"></a><4>平台</4></h3><p>平台，中台的形式。区别于大型单体应用或系统，传统的企业数字化规划更多的是围绕业务架构、应用架构和数据架构展开。但常出现的问题，一个是大单体系统的业务响应力有限，缺少<strong>柔性</strong>，当业务发展到一定阶段后，必然产生大量定制化需求，随着内部定制化模块的比例逐渐上升，响应力成指数下降，成为业务的瓶颈点。另一个则是系统间的打通通常比较困难，容易形成业务孤岛和数据孤岛。所以需要以平台化的方式重塑企业IT架构，从而给业务提供足够的<strong>柔性</strong>，来满足对于业务的快速响应和复用的需求。</p>
+<p><strong>企业级能力复用平台</strong>，这九个字是我理解中台的第三步。</p>
+<h2 id="2-中台什么样"><a href="#2-中台什么样" class="headerlink" title="2.中台什么样"></a>2.中台什么样</h2><h3 id="业务数据双中台"><a href="#业务数据双中台" class="headerlink" title="业务数据双中台"></a><1>业务数据双中台</1></h3><p>提起中台，绕不开也是最先想到的应该都是阿里巴巴的数据业务双中台。毕竟阿里的“大中台小前台”战略人尽皆知，其威力也是显而易见的。</p>
+<p><img src="/2020/04/25/浅入浅出“中台”/image-20200424230240326.png" alt="image-20200424230240326"></p>
+<p>从图中可见，阿里中台主要体现为由业务中台和数字中台并肩构成的双中台，并肩扛起了所有前台业务。</p>
+<ul>
+<li>业务中台将后台资源进行抽象包装整合，转化为前台友好的可重用共享的核心能力，实现了后端业务资源到前台易用能力的转化。</li>
+<li>数据中台从后台及业务中台将数据流入，完成海量数据的存储、计算、产品化包装过程，构成企业的核心数据能力，为前台基于数据的定制化创新和业务中台基于数据反馈的持续演进提供了强大支撑。</li>
+<li>业务中台与数据中台相辅相成、互相支撑，一起构建起了战场强大的后方炮火群和雷达阵。</li>
+</ul>
+<h3 id="技术中台"><a href="#技术中台" class="headerlink" title="技术中台"></a><2>技术中台</2></h3><p>大中台小前台，并不代表前台不重要，相反，大中台的建设就是为了更好地服务好小前台，大中台的威力也需要靠小前台的引导才能真正发挥和体现出来。那如何快速构建出短小精悍，武器精良，战斗力十足的特种兵前台应用，充分发挥和释放出中台炮火群的威力，就需要依靠这里提到的技术中台。</p>
+<p><img src="/2020/04/25/浅入浅出“中台”/image-20200424230752539.png" alt="image-20200424230752539"></p>
+<p>技术中台就是将使用云或其他基础设施的能力以及应用各种技术中间件的能力进行整合和包装。过滤掉技术细节，提供简单一致、易于使用的应用技术基础设施的能力接口，助力前台和业务中台数据中台的快速建设。</p>
+<h3 id="研发中台"><a href="#研发中台" class="headerlink" title="研发中台"></a><3>研发中台</3></h3><p><img src="/2020/04/25/浅入浅出“中台”/image-20200424231238999.png" alt="image-20200424231238999"></p>
+<p>软件开发是一项工程，涉及到管理、流程、测试、团队协作等方面。如何将企业的开发流程最佳实践沉淀成可重用的“能力”，从而助力创新性应用的快速开发迭代，也是我们看到的很多企业正在做的事情，我们可以管这种关注与开发效能管理的平台叫做研发中台。</p>
+<p>如果说技术中台为前台应用提供了基础设施重用的能力，那研发中台就为前台应用提供了流程和质量管控以及持续交付的能力。</p>
+<h3 id="组织中台"><a href="#组织中台" class="headerlink" title="组织中台"></a><4>组织中台</4></h3><p>围绕技术展开并不是基于在中台构建中技术的重要性，而是因为技术的改进相对简单。而中台建设真正困难的是组织上的重构，这往往是大家有意无意避而不谈的。这里不得不说康威定律了：</p>
+<blockquote>
+<p>Conway’s law: Organizations which design systems are constrained to produce designs which are copies of the communication structures of these organizations. - Melvin Conway(1967)<br>设计系统的组织其产生的设计等价于组织间的沟通结构。</p>
+</blockquote>
+<p>中台建设真正困难的是组织上的重构，这往往是大家有意无意避而不谈的。中台战略的成功、能否实现技术架构与组织架构的匹配，是一道绕不过去必须要迈过的门槛。</p>
+<p>为了真正解决企业创新在组织层面的摩擦和阻力，构建真正的平台型组织。《释放潜能-平台型组织的进化路线图》提出了上图这样一个平台型组织的组织结构。</p>
+<p><img src="/2020/04/25/浅入浅出“中台”/image-20200424232310867.png" alt="image-20200424232310867"></p>
+<p>组织中台很像企业中的内部风投和创新孵化机构，为前台组织和团队构建创新型前台应用提供类似于投资评估、投资管理、投后管理，真正从组织和制度上支撑前台组织和应用的快速迭代规模化创新。</p>
+<p>一切以”以用户为中心的持续规模化创新”为目的，将后台各式各样的资源转化为前台易于使用的能力，帮助我们打赢这场以用户为中心的战争的平台，我们都可以称之为中台：</p>
+<ul>
+<li>业务中台提供重用服务，例如用户中心，订单中心之类的开箱即用可重用能力，为战场提供了强大的后台炮火支援能力，随叫随到，威力强大；</li>
+<li>数据中台提供了数据分析能力，帮助我们从数据中学习改进，调整方向，为战场提供了强大及时的雷达监测能力，帮助我们掌控战场；</li>
+<li>技术中台提供了自建系统部分的技术支撑能力，帮助我们解决了基础设施，分布式数据库等底层技术问题，为前台特种兵提供了精良的武器装备；</li>
+<li>研发中台提供了自建系统部分的管理和技术实践支撑能力，帮助我们快速搭建项目，管理进度，测试，持续集成，持续交付，是前台特种兵的训练基地及快速送达战场的机动运输部队；</li>
+<li>组织中台为我们的项目提供投资管理，风险管理，资源调度等，是战场的指挥部，战争的大脑，指挥前线，调度后方。</li>
+</ul>
+<p>其实还有很多中台，比如滴滴有出行中台，阿里巴巴还有移动中台以及各类算法中台、搜索中台等等。评判一个平台是否称得上中台，最终评判标准不是技术也不是长什么模样，最终还是得前台说了算，毕竟前台才是战争的关键，才是感受得到战场的残酷，看得见用户的那部分人。</p>
+<h1 id="0x03HOW"><a href="#0x03HOW" class="headerlink" title="0x03HOW"></a>0x03HOW</h1><p>How并不是告诉大家怎么做，那会是一个更大的故事，而是我在理解中台的路上遇到的在关于how的一些词，他们困惑过我，但当我理解他们的时候，知道他们的差别的时候，会豁然开朗</p>
+<h2 id="1-中台战略"><a href="#1-中台战略" class="headerlink" title="1.中台战略"></a>1.中台战略</h2><p>“战略”可能说起来都是比较大，听起来很虚的东西，但中台建设如前文建设原则所述，没有战略高度，最后就会形同虚设。中台这个概念，随着市场的炒作，越来越像一个个“许愿池”，承载了每家企业对于自己未来发展的美好愿景。但理想总是很丰满，而现实总是很骨感，世间一直没有“银弹”。</p>
+<h3 id="中台建设过程中的问题"><a href="#中台建设过程中的问题" class="headerlink" title="中台建设过程中的问题"></a><1>中台建设过程中的问题</1></h3><p>当我们开始建设中台时，一系列的问题就出现了：</p>
+<p><img src="/2020/04/25/浅入浅出“中台”/image-20200425094713843.png" alt="image-20200425094713843"></p>
+<p>中台的建设既然是“企业级”，必然会涉及到组织的调整，甚至是组织的重新划分以及利益的重新分配，而这些都早已超出了技术能解决的范畴。一直是想方设法绕过组织这座大山，回归到熟悉的技术领域，尝试用技术的方式去解决碰到的所有问题，但神奇的是组织的大山总会在中台建设的某个关键阶段，像海市蜃楼一样突然出现在面前，阻挡在前进的路上，绕也绕不开。<strong>组织可能不是中台建设的阻碍，而恰恰是中台建设的本质。</strong>这不正是“康威定律”的另一种表述。</p>
+<h3 id="中台建设需要关注组织架构"><a href="#中台建设需要关注组织架构" class="headerlink" title="中台建设需要关注组织架构"></a><2>中台建设需要关注组织架构</2></h3><p>回答这个问题可以从两个方向推演：一个是<strong>自上而下</strong>，一个是<strong>自下而上</strong>。</p>
+<ul>
+<li>自上而下：组织重构是战略落地的必经之路</li>
+</ul>
+<p>而战略的落地，往往就是靠组织的调整来实现的。美国的管理大师钱德勒就表达过组织结构从属于战略的观点，即“企业的发展取决于两个变量，一个变量是企业正确的战略，另一个变量，就是企业的组织结构。这两个变量之间，前者决定后者，后者保证前者的落地实现。”马云也曾在湖畔大学的分享《使命、愿景、价值观、组织、人才、KPI》中提到过：“战略最后的本事不是你设计了多好一个Plan，而是你落实到了什么样的组织，谁来干，考核指标是什么？”</p>
+<p><a href="https://insights.thoughtworks.cn/wp-content/uploads/2019/07/1-3.png" target="_blank" rel="noopener"><img src="/2020/04/25/浅入浅出“中台”/1-3.png" alt="img"></a></p>
+<p>可见中台战略之所以是企业级的数字化战略转型的一部分，从战略落地的角度来看，组织调整是其中重要的一环，也是战略真正落地的重要体现。</p>
+<ul>
+<li>自下而上：组织是中台建设荆棘道路上的一道坎</li>
+</ul>
+<p>实际去观察，目前很多企业的中台建设，仍然主要是以技术驱动为主，以IT治理为目标，天天谈论的还大多是微服务怎么拆、技术架构如何选型此类的问题。不是说这些问题不重要，而是技术驱动的一个主要问题在于：很难讲清楚中台建设对于业务的价值。而讲不清楚中台建设对于业务的价值，就得不到相应的资源，这里的资源主要就是钱和人。</p>
+<p>没有资源的支持，技术团队就只能自己委屈点儿，吃苦耐劳，加班加点，用有限的资源既要满足业务上的需求，又要借着这个机会做中台的改造，甚至是闷着头偷着做的，卧薪尝胆。但结果却往往并不好，好不容易硬着头皮加班加点赶完了一个版本，上线了，需要前台应用接入了，这时问题才暴露出来，例如经常出现这样的声音：</p>
+<ul>
+<li>我们（其他团队）为什么要用你的中台，我们也建了一个，要不你用我的吧……</li>
+<li>我们（其他团队）为什么要把数据给你？我这儿也有一个数据中台，你能不能把你的数据先给我一份儿……</li>
+</ul>
+<p>为什么中台建设必然会在某个阶段遇到组织这个无法逾越的坎，所以如果不在一开始考虑清楚，必然会让自己在中台建设的某个阶段处于一个进退两难的境地，非常被动。</p>
+<h3 id="问题的本质到底是什么？"><a href="#问题的本质到底是什么？" class="headerlink" title="问题的本质到底是什么？"></a><3>问题的本质到底是什么？</3></h3><blockquote>
+<p>问题不在于企业原本是哪类的组织结构，问题在于中台团队本身的定位。中台团队被定位成一个共享职能团队，中台团队与前台团队之间的关系是服务和被服务的关系，这才是问题的关键。</p>
+</blockquote>
+<p>因为中台是一个共享服务团队，与前台是服务与被服务的关系。那自然前台出钱，中台团队为其提供服务就是天经地义的事情，正所谓“拿人钱财替人消灾”。这时候就会出现两种情况：因为中台建设的复杂性和长期性，导致短期无法满足前台团队的短期业务需求，业务方不满，觉得花了钱没有得到相应的服务；中台团队责因为背负着业务的持续施压，无法按照自己的节奏推进中台建设，痛苦不堪，矛盾产生。<strong>短期战术目标与长期战略目标的矛盾</strong>。一种情况是，中台团队迫于压力极力满足前台的需求。但因为中台的企业级性质，中台团队需要同时面对多个不同的前台业务、前台团队。因为每一个前台团队都是“金主、客户、甲方”，在中台团队眼中地位是一样的，都是需要极力满足需求的。而因为前台团队“花了钱”，为了能获取更多的中台资源使用权，自然都会给中台团队提出各种各样的需求，来争取到更多的中台资源，导致中台团队的需求短时间剧增，但因为毕竟中台的资源有限，所以自然而然会出现之前反复提到的需求剧增、排期、冲突等问题，矛盾产生。<strong>多前台由于中台资源竞争所产生的矛盾</strong>。</p>
+<h3 id="Platform-as-a-Product！"><a href="#Platform-as-a-Product！" class="headerlink" title="Platform as a Product！"></a><4>Platform as a Product！</4></h3><p>那问题如何破？给中台一个边界，产品的边界，将中台团队从共享职能团队转变为中台产品团队，将前台与中台的关系由被服务与服务的关系变为产品与产品的关系 ，即：</p>
+<blockquote>
+<p>Platform as a Product！</p>
+</blockquote>
+<p>如果中台是一个产品，则意味着：</p>
+<ul>
+<li><p>中台作为产品需要有自己的愿景定位，不一定需要满足所有前台客户的需求，这同样也意味着前台可以选择不使用中台的某些能力而选择自建。</p>
+</li>
+<li><p>中台作为产品需要有自己清晰的用户定位和用户划分，前台作为中台的用户不再是平等的，VIP前台用户的需求要优于免费前台用户的诉求，通过产品上常见的用户划分来解决需求膨胀、排期、优先级和冲突问题。</p>
+</li>
+<li><p>中台作为一个产品，需要想方设法体现自身的价值，真正为前台客户解决实际问题，并关注前台用户体验，通过营销和售前等手段获取前台客户，通过清晰的用户定位和产品力吸引前台客户，让其主动选择采购中台产品。</p>
+</li>
+<li><p>产品的建设初期，不一定启动资金直接从业务上切分，可能需要类似于天使投资的企业战略投资进行初始孵化，减少中台前期建设的业务交付压力，甚至作为企业的战略级产品，需要一些内部保护和孵化，但仍需要快速验证其价值，获取客户，实现自负盈亏。</p>
+</li>
+</ul>
+<p>其实阿里巴巴早已将自身的中台能力，通过产品化包装整合到了阿里云上，对外输出，无论是承载了技术中台能力的Aliware，还是承载着数据中台能力的Dataphin，还是承载着研发效能能力的云效。</p>
+<p>基于企业的使命与愿景，结合当前的商业形势，制定匹配的公司战略，并基于战略迅速调整组织进行战略落地。 再根据康威定律，通过组织的变化引导IT架构的演进，所以中台的诞生只是企业战略层面上，在企业发展某个阶段强调加强组织横向协同性的一个中间产物而已。</p>
+<h2 id="2-业务中台"><a href="#2-业务中台" class="headerlink" title="2.业务中台"></a>2.业务中台</h2><p>当我们在聊业务中台，我们总是提到，微服务、DDD、Event Storming，我们在讨论各种业务中台的共性能力识别和微服务划分的时候，总是能看到DDD、Event Storming这两位的身影。那他们到底和中台什么关系呢？我们先从DDD说起。</p>
+<h3 id="DDD（领域驱动设计）"><a href="#DDD（领域驱动设计）" class="headerlink" title="DDD（领域驱动设计）"></a><1>DDD（领域驱动设计）</1></h3><p> Domain-Driven Design第一版本是03年发布的，DDD虽然诞生的早，但直到现在，和我们日常工作的距离也并不远，例如我们代码中经常出现的XxxEntity，XxxRepository ，XxxService，XxxFactory……这些类，这里的Entity、Repository、Service和Factory，以及我们现在大家早已习以为常的分层架构，都是出自DDD之手，只不过很多人已经不知道这些都是拜DDD所赐而已。</p>
+<p><strong>DDD其实就是面向对象的一套“方言”，提供了一种基于业务领域的对象划分和分类方法，其最大的价值就在于对于软件开发过程全生命周期使用语言的统一！</strong></p>
+<p>在面向对象的世界，只告诉了我们万事万物皆是对象。但并没有告诉我们对象究竟应该怎么组织，该以什么角度进行划分。而作为技术人员的我们，早已习惯了从技术的角度出发思考，自然就出现了“用技术的语言”定义对象的习惯，例如最常见的DAO（Data Access Objects），DTO（Data Transfer Object）这类对象的划分方式就是使用技术视角看待和分类对象的典型案例。这样从技术视角分类对象的问题，就在于在软件的开发过程中，会涉及到多“语言”间的对应和翻译，例如最常见的就是业务语言和技术语言的相互翻译。想想周围经常出现的研发和产品之间各种痛苦的沟（吵）通（架）场景。而DDD的出现，就是为了解决这个问题。它通过一套面向对象的分类方法或是方言体系，从领域出发，实现软件开发过程中各个角色和环境的<strong>“统一语言”（UBIQUITOUS LANGUAGE）</strong>。</p>
+<p>了解了DDD的来历和价值，那我们还有疑问，既然DDD这个概念已经快被人们淡忘了10多年了（虽然我们一直还在不知不觉中僵硬地应用着），那为什么最近一两年又突然重出江湖，重新被大家关注了呢？答案其实就两个：<strong>微服务和中台</strong>。</p>
+<p>其实DDD一开始的时候，就把领域分析设计分为了战略和战术两个部分。按道理应该从战略入手，再下沉到战术部分。但是Eric Evans在写《Domain-Driven Design》这本书时，可能是基于当时的环境，却是先写的战术部分，书的后半部分才开始展开DDD的战略部分。</p>
+<p><img src="/2020/04/25/浅入浅出“中台”/image-20200425151806052.png" alt="image-20200425151806052"></p>
+<p>直到微服务的横空出世……随着微服务架构的兴起，微服务到底如何拆分就成了人们最最关注的问题。这时候一些“老人儿”们突然想起来，这不是正是应用DDD中战略部分（问题域，限界上下文）应用和施展拳脚的场合么？！所以随着微服务的爆炸式发展，DDD这位退隐已久的老江湖，又再次被请出了山，站到了大家的面前。而此时，他身边还多了一个年轻的新搭档，他正是：事件风暴。</p>
+<h3 id="EventStorming（事件风暴）"><a href="#EventStorming（事件风暴）" class="headerlink" title="EventStorming（事件风暴）"></a><2>EventStorming（事件风暴）</2></h3><p>现在，当很多人谈到DDD都会同时谈到EventStorming，甚至有人误认为这两个名词本身指代的就是同一个概念。但其实这是两个完全独立的工具。DDD是一套基于领域的分析和建模方法，而EventStorming则是一套Workshop方法。</p>
+<p><img src="/2020/04/25/浅入浅出“中台”/4-EventStorming-1.png" alt="img"></p>
+<p>上图是EventStorming的一个概括，从图中，我们可以看出阐释了从系统外部与用户的交互，到系统内（事件-策略-命令-聚合-事件）的事件传递涟漪，以及通过事件影响到读模型从而给予用户动作的响应，从而形成完整闭环的全过程。对我们了解还原系统的全貌非常有帮助。</p>
+<p>DDD提供了一套面向对象的“方言”，给出了一套面向对象的分类框架和架构指引，但是在DDD中并没有明确给出如何为一个系统识别出这些不同种类的对象的过程和方法。而EventStorming的出现正好弥补了这个空白，通过EventStorming工作坊的方式，正好给我们提供了一个还原和分析系统的方法，并最终通过“聚合”这条红线，穿越时空，无缝切入到DDD的领域范畴之内，以“聚合”为支点，向上可以进一步做问题域和限界上下文的战略分析，向下则可以通过聚合的进一步展开进行实体、值对象等相关的战术分析，引导落地。而DDD战略设计中问题域和限界上下文的识别，则为我们划分微服务提供了非常强有力的支撑，至此我们就通过EventStorming和DDD的这一对强力组合的联袂辅助下，找到了解决了微服务架构下最困难问题之一的，既服务该如何划分问题的解题思路和落地方法。</p>
+<h3 id="DDD、EventStorming与业务中台"><a href="#DDD、EventStorming与业务中台" class="headerlink" title="DDD、EventStorming与业务中台"></a><3>DDD、EventStorming与业务中台</3></h3><p>业务中台解决的是企业级能力复用的问题，而微服务解决的是运行时解耦的问题。业务中台不一定是微服务的，采用微服务架构的也不一定就是业务中台。所以很多人以为使用DDD和EventStorming规划业务中台，是因为微服务，基于以上的分析这也是站不住脚的，难道我不用微服务架构来实现业务中台，就无法使用DDD和EventStorming了么？DDD和EventStorming的结合，形成的是一套“领域分析方法”，可以想象成一套双剑合璧的剑阵。其目的是透过现象看本质，透过表面的业务流程来分析背后的核心领域问题和概念，而微服务架构只是使用了这套能力，来指导和帮助进行服务划分而已，并且也不是唯一的指导原则，其他还需要考虑像团队组成、变更频率、技术异构边界、SLA要求等等因素……</p>
+<p>而对于业务中台，这套领域分析方法，则可以指导我们探究与分析业务中台规划过程中的一个最困难的问题，既：识别不同的业务线，到底有哪些业务是可以复用的？而这种通过领域分析和抽象，找寻不同业务线背后面对的相同的问题域，并从中提取共性的业务模型、提取共性的业务功能、提取共性的业务流程、甚至是提取共性的业务模式，加工并予以复用的过程，也正是业务中台的规划与建设过程的关键所在。</p>
+<p><img src="https://insights.thoughtworks.cn/wp-content/uploads/2019/12/7-EventStormingDDD%E4%B8%AD%E5%8F%B0.png" alt="img"></p>
+<h2 id="3-数据中台"><a href="#3-数据中台" class="headerlink" title="3.数据中台"></a>3.数据中台</h2><p>当我们聊数据中台的时候，总是听到数据仓库、3NF、维度建模、数据湖、数据治理、人工智能，我们先从维度建模开始。</p>
+<h3 id="数仓建模"><a href="#数仓建模" class="headerlink" title="数仓建模"></a><1>数仓建模</1></h3><p>数仓建模的方法都是老面孔，他们设置在我出生之前就已应用数仓建模方法论有很多3NF、Inmon 模型以及kimball的维度建模。</p>
+<p>学过数据库的都知道范式：</p>
+<ul>
+<li><p>[第一范式]（1NF）无重复的列。</p>
+</li>
+<li><p>[第二范式]（2NF）非主属性非部分依赖于主关键字。</p>
+</li>
+<li><p>[第三范式]（3NF）属性不依赖于其它非主属性。</p>
+</li>
+</ul>
+<p><img src="/2020/04/25/浅入浅出“中台”/8940211-520bde42c09dc243.webp" alt="img"></p>
+<p>OLTP系统数据(可以笼统为业务后端用的数据)的主要用的建模方式就是三范式，从而在事务处理中解决数据的冗余和一致性问题。Inmon就是数仓之父，他提出的建模方法是从全企业的高度设计一个3NF模型，但是数仓的3NF和OLTP中的3NF的区别在于，它是站在企业的角度面向主题的抽象，而不针对具体业务过程。他推崇自上而下的建模方式，即从数据源到数据仓库再到数据集市的（先有数据仓库再有数据市场）一种瀑布流开发方法。建模主要步骤：</p>
+<ol>
+<li>高层模型：一个高度抽象的模型，描述主要的主题以及主题间的关系，用于描述企业的业务总体概况；</li>
+<li>中层模型：在高层模型的基础上，细化主题的数据项；</li>
+<li>物理模型：在中层模型的基础上，考虑物理存储，同时基于性能和平台特点进行物理属性的设计，也可能做一些表的合并、分区的设计等。</li>
+</ol>
+<p>Kimball 维度模型推崇自底向上的设计模式，即从数据集市到数据仓库再到数据源(先有数据集市再有数据仓库)的一种敏捷开发方法。Kimball都是以最终任务为导向。首先，在得到数据后需要先做数据的探索，尝试将数据按照目标先拆分出不同的表需求。其次，在明确数据依赖后将各个任务再通过ETL由Stage层转化到DM层。这里DM层数据则由若干个事实表和维度表组成。接着，在完成DM层的事实表维度表拆分后，数据集市一方面可以直接向BI环节输出数据了，另一方面可以先DW层输出数据，方便后续的多维分析。建模主要步骤：</p>
+<ol>
+<li><p>选择业务过程，业务过程可能是交易的支付、下单等，也可能是当前用户余额等。</p>
+</li>
+<li><p>选择粒度，粒度是维度的组合，类比：国家粒度、城市粒度。</p>
+</li>
+<li><p>识别维表，通过选择的粒度从而设计好维表。</p>
+</li>
+<li><p>选择事实，确定分析需要的指标。</p>
+<p><img src="/2020/04/25/浅入浅出“中台”/8940211-3103a2f265323873-1587829762916.webp" alt="img"></p>
+<p>Inmon的核心企业数据仓库要求规范化表，需要大量的时间来梳理和设计数据表结构，但如果规范化数据仓库一旦建立好了，则以后数据就更易于管理。而且由于开发人员不能直接使用其中心数据库，更加确保了数据质量，中心数据库是采用规范化设计的，冗余情况也会更少。而维度建模数据仓库对数据表结构没有强规范型要求，数据仓库建设敏捷性就更好点，而且适用于业务变化比较频繁的情况，对开发人员的要求也没有规范化数据仓库那么高。我们在实际的数仓开发中往往针对不同的数据场景平衡两种方法论结合使用。</p>
+</li>
+</ol>
+<h3 id="数据湖、数据平台、数据仓库-BI"><a href="#数据湖、数据平台、数据仓库-BI" class="headerlink" title="数据湖、数据平台、数据仓库/BI"></a><2>数据湖、数据平台、数据仓库/BI</2></h3><p>实际上它们之间根本不在一个维度上。数据中台是个概念，而数据仓库是一种具体的技术领域，它也已经有对应的标准化的产品。商业智能一方面也是一个概念，另一方面它也有对应的产品。</p>
+<p>传统的商业智能和数据仓库，是以分析报表为核心。把数据加工成分析报表，提供给决策层去看的。这样的辅助决策系统，叫商业智能，它的底层是数据仓库，因为它要跨域存储和处理加工企业的历史数据。数据平台是企业有了大数据的情况下，希望能够采集全量的数据，包括采集非结构化数据的大数据平台。数据仓库、数据平台都是技术类系统，不能直接服务于业务。而数据中台，企业希望它能直接服务与业务前台。商业智能主要的用户是决策层，它主要提供服务的方法是分析报表、数据湖和数据平台。它的主要的使用对象实际上是数据开发者、数据技术人员和数据分析师。</p>
+<p>数据中台的用户则是企业所有的数据用户，数据消费者，还包括业务系统。数据中台是能直接服务于业务的平台。它能离具体业务更近，以多种方式为业务、系统提供数据产品。</p>
+<p><img src="/2020/04/25/浅入浅出“中台”/image-20200425224714951.png" alt="image-20200425224714951"></p>
+<p>如果从出发点来说，现在的技术选型、技术工具是很多的，但是最重要的是我们对一件事情的概念上的认知，只要目标和认知清晰了，那么实现它的办法是有很多种的。数据中台和数据平台最大的区别是什么？我们认为数据中台是离业务更近。业务需要什么服务？是数据中台和数据服务。中台的部门或者团队，最优先考虑的是提供给业务所需要的服务。但数据平台不一样，数据平台最核心的是数据的存储、加工。</p>
+<p><strong>数据中台是为企业所有的数据消费者提供数据服务/产品的平台。</strong></p>
+<h1 id="0x04写在最后"><a href="#0x04写在最后" class="headerlink" title="0x04写在最后"></a>0x04写在最后</h1><p>在企业数字化道路上，战略、业务、IT的边界会慢慢消失，所有的战略、业务都需要技术的支撑。企业需要成为一个灵活的胖子，而不是行动迟缓的巨人。中台涉及的面很广，虽然写本文的时候，是先有why再有what再how，但实际中，我确是先对how有了解，从how发现很多事情在技术层面是说不通的，才会追根溯源，尝试刨根问底，终于初窥门径。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/中台/" rel="tag"># 中台</a>
+          
+            <a href="/tags/用户响应力/" rel="tag"># 用户响应力</a>
+          
+            <a href="/tags/数字化/" rel="tag"># 数字化</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/02/一份复习数学的书单-0-For-The-ML/" rel="next" title="一份复习数学的书单[0]--For The ML">
+                <i class="fa fa-chevron-left"></i> 一份复习数学的书单[0]--For The ML
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Nullts" />
+          <p class="site-author-name" itemprop="name">Nullts</p>
+           
+              <p class="site-description motion-element" itemprop="description">人生本就虚无，所谓永恒的意义也只是经历的一切。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0X00-题记"><span class="nav-number">1.</span> <span class="nav-text">0X00 题记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-WHY"><span class="nav-number">2.</span> <span class="nav-text">0x01 WHY</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-中台如何而来"><span class="nav-number">2.1.</span> <span class="nav-text">1.中台如何而来</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#企业为什么要平台化？"><span class="nav-number">2.1.1.</span> <span class="nav-text">企业为什么要平台化？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#企业为什么要建中台？"><span class="nav-number">2.1.2.</span> <span class="nav-text">企业为什么要建中台？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-需要一个中台吗？"><span class="nav-number">2.2.</span> <span class="nav-text">2.需要一个中台吗？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Strategic-Initiative-Over-Tactic-Initiative-战略举措胜于战术举措"><span class="nav-number">2.2.1.</span> <span class="nav-text">Strategic Initiative Over Tactic Initiative 战略举措胜于战术举措</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Business-Decision-Over-Technical-Decision-业务决策胜于技术决策"><span class="nav-number">2.2.2.</span> <span class="nav-text">Business Decision Over Technical Decision 业务决策胜于技术决策</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Empowerment-Over-Governance-赋能胜于治理"><span class="nav-number">2.2.3.</span> <span class="nav-text">Empowerment Over Governance 赋能胜于治理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02WHAT"><span class="nav-number">3.</span> <span class="nav-text">0x02WHAT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-中台的定义"><span class="nav-number">3.1.</span> <span class="nav-text">1.中台的定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#企业级"><span class="nav-number">3.1.1.</span> <span class="nav-text">企业级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#能力"><span class="nav-number">3.1.2.</span> <span class="nav-text">能力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复用"><span class="nav-number">3.1.3.</span> <span class="nav-text">复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#平台"><span class="nav-number">3.1.4.</span> <span class="nav-text">平台</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-中台什么样"><span class="nav-number">3.2.</span> <span class="nav-text">2.中台什么样</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#业务数据双中台"><span class="nav-number">3.2.1.</span> <span class="nav-text">业务数据双中台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#技术中台"><span class="nav-number">3.2.2.</span> <span class="nav-text">技术中台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#研发中台"><span class="nav-number">3.2.3.</span> <span class="nav-text">研发中台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组织中台"><span class="nav-number">3.2.4.</span> <span class="nav-text">组织中台</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x03HOW"><span class="nav-number">4.</span> <span class="nav-text">0x03HOW</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-中台战略"><span class="nav-number">4.1.</span> <span class="nav-text">1.中台战略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#中台建设过程中的问题"><span class="nav-number">4.1.1.</span> <span class="nav-text">中台建设过程中的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中台建设需要关注组织架构"><span class="nav-number">4.1.2.</span> <span class="nav-text">中台建设需要关注组织架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题的本质到底是什么？"><span class="nav-number">4.1.3.</span> <span class="nav-text">问题的本质到底是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Platform-as-a-Product！"><span class="nav-number">4.1.4.</span> <span class="nav-text">Platform as a Product！</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-业务中台"><span class="nav-number">4.2.</span> <span class="nav-text">2.业务中台</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DDD（领域驱动设计）"><span class="nav-number">4.2.1.</span> <span class="nav-text">DDD（领域驱动设计）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EventStorming（事件风暴）"><span class="nav-number">4.2.2.</span> <span class="nav-text">EventStorming（事件风暴）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DDD、EventStorming与业务中台"><span class="nav-number">4.2.3.</span> <span class="nav-text">DDD、EventStorming与业务中台</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-数据中台"><span class="nav-number">4.3.</span> <span class="nav-text">3.数据中台</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数仓建模"><span class="nav-number">4.3.1.</span> <span class="nav-text">数仓建模</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据湖、数据平台、数据仓库-BI"><span class="nav-number">4.3.2.</span> <span class="nav-text">数据湖、数据平台、数据仓库/BI</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x04写在最后"><span class="nav-number">5.</span> <span class="nav-text">0x04写在最后</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nullts</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+  <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
